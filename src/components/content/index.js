@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Home from "./Home";
 import HowTo from "./HowTo";
+import Merchandise from "./Merchandise";
 import Navigation from "./Navigation";
 import Stances from "./Stances";
 import Volunteer from "./Volunteer";
@@ -17,6 +18,7 @@ export {
   Header,
   Home,
   HowTo,
+  Merchandise,
   Navigation,
   Stances,
   Volunteer,

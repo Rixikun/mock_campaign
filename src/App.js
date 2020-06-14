@@ -1,13 +1,19 @@
 import React from "react";
 import { Provider } from "react-redux";
+import store from "./redux/store";
 
-import * as Components from "./components/content";
+import * as C from "./components/content";
 
 function App() {
   return (
-    <div className="App">
-      <Components.Home />
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <C.Header />
+        <C.Home />
+        <C.Merchandise />
+        <C.Footer />
+      </div>
+    </Provider>
   );
 }
 
