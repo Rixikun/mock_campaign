@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
   const names = [
@@ -12,7 +12,9 @@ const Navigation = () => {
   ];
   const pages = names.map((page) => (
     <li>
-      <Link to={"/" + page}>{page}</Link>
+      <NavLink to={"/" + page} activeClassName="link__active">
+        {page}
+      </NavLink>
     </li>
   ));
   return (

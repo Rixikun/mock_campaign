@@ -3,8 +3,9 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import store from "./redux/store";
-
 import * as C from "./components/content";
+
+import style from "./style.css";
 
 function App() {
   return (
