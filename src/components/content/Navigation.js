@@ -1,7 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
-  return <div>About Stances Endorsement How to Vote Volunteer Donate</div>;
+  const names = [
+    "About",
+    "Stances",
+    "Endorsement",
+    "Volunteer",
+    "Donate",
+    "Merchandise",
+  ];
+  const pages = names.map((page) => (
+    <li>
+      <Link to={"/" + page}>{page}</Link>
+    </li>
+  ));
+  return (
+    <div>
+      <ul>{pages}</ul>
+    </div>
+  );
 };
 
 export default Navigation;
