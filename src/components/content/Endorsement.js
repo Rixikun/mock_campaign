@@ -6,7 +6,7 @@ import { fetchPeople } from "../../redux";
 const Endorsement = ({ peopleData, fetchPeople }) => {
   useEffect(() => {
     fetchPeople();
-  }, []);
+  });
 
   return peopleData.loading ? (
     <h3>Loading . . .</h3>
