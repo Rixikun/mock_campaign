@@ -1,11 +1,11 @@
 import React from "react";
-import UseInput from "../hooks/UseInput";
+import useInput from "../hooks/useInput";
 
 const VolunteerForm = () => {
-  const [firstName, bindFirstName, resetFirstName] = UseInput("");
-  const [lastName, bindLastName, resetLastName] = UseInput("");
-  const [email, bindEmail, resetEmail] = UseInput("");
-  const [phoneNumber, bindPhoneNumber, resetPhoneNumber] = UseInput("");
+  const [firstName, bindFirstName, resetFirstName] = useInput("");
+  const [lastName, bindLastName, resetLastName] = useInput("");
+  const [email, bindEmail, resetEmail] = useInput("");
+  const [phoneNumber, bindPhoneNumber, resetPhoneNumber] = useInput("");
 
   const submitHandler = (e) => {
     e.preventDefault();

@@ -1,10 +1,10 @@
 import React from "react";
-import UseInput from "../hooks/UseInput";
+import useInput from "../hooks/useInput";
 
 import Navigation from "./Navigation";
 
 const Footer = () => {
-  const [email, bindEmail, resetEmail] = UseInput("");
+  const [email, bindEmail, resetEmail] = useInput("");
   const submitHandler = (e) => {
     e.preventDefault();
     resetEmail();
