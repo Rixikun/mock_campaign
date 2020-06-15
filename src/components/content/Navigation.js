@@ -10,10 +10,10 @@ const Navigation = () => {
     "Donate",
     "Merchandise",
   ];
-  const pages = names.map((page) => (
-    <li>
-      <NavLink to={"/" + page} activeClassName="link__active">
-        {page}
+  const pages = names.map((name) => (
+    <li key={name}>
+      <NavLink to={"/" + name} activeClassName="link__active">
+        {name}
       </NavLink>
     </li>
   ));
