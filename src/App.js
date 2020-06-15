@@ -41,7 +41,7 @@ function App() {
             </Route>
           </Switch>
 
-          <C.Footer />
+          {/* <C.Footer /> */}
         </div>
       </Router>
     </Provider>
