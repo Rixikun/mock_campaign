@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import { fetchPeople } from "../../redux";
@@ -20,7 +20,7 @@ const Endorsement = ({ peopleData, fetchPeople }) => {
           peopleData.users &&
           peopleData.users.map((person) => (
             <p key={person.id}>
-              {person.name} of {person.city}
+              {person.name} of {person.address.city}
               stands in support of this candidate!
             </p>
           ))}

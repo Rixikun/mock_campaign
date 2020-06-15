@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import store from "./redux/store";
 import * as C from "./components/content";
 
-import style from "./style.css";
+import "./main.scss";
 
 function App() {
   return (
