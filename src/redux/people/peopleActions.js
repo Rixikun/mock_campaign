@@ -30,7 +30,10 @@ export const fetchPeople = () => {
     //request data -- People list
     try {
       dispatch(fetchPeopleRequest);
-      const res = await axios.get("https://jsonplaceholder.typicode.com/users");
+      //cors issue getaround: proxy server
+      const res = await axios.get(
+        "https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/users"
+      );
       const people = res.data;
       dispatch(fetchPeopleSuccess(people));
     } catch (err) {
