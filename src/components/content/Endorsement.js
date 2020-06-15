@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useCallback } from "react";
 import { connect } from "react-redux";
 
 import { fetchPeople } from "../../redux";
 
 const Endorsement = ({ peopleData, fetchPeople }) => {
-  const [data, setData] = useState([]);
-
   useEffect(() => {
     fetchPeople();
-    setData(peopleData.users);
-  }, [data]);
+  }, []);
 
   return peopleData.loading ? (
     <h3>Loading . . .</h3>

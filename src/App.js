@@ -15,30 +15,14 @@ function App() {
           <C.Header />
 
           <Switch>
-            <Route path="/About">
-              <C.AboutCandidate />
-            </Route>
-            <Route path="/Stances">
-              <C.Stances />
-            </Route>
-            <Route path="/Endorsement">
-              <C.Endorsement />
-            </Route>
-            <Route path="/Volunteer">
-              <C.Volunteer />
-            </Route>
-            <Route path="/Donate">
-              <C.Donate />
-            </Route>
-            <Route path="/Merchandise">
-              <C.Merchandise />
-            </Route>
-            <Route path="/HowTo">
-              <C.HowTo />
-            </Route>
-            <Route path="/">
-              <C.Home />
-            </Route>
+            <Route path="/About" component={C.AboutCandidate} />
+            <Route path="/Stances" component={C.Stances} />
+            <Route path="/Endorsement" component={C.Endorsement} />
+            <Route path="/Volunteer" component={C.Volunteer} />
+            <Route path="/Donate" component={C.Donate} />
+            <Route path="/Merchandise" component={C.Merchandise} />
+            <Route path="/HowTo" component={C.HowTo} />
+            <Route path="/" component={C.Home} />
           </Switch>
 
           <C.Footer />
