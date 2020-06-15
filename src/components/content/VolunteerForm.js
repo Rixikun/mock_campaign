@@ -1,5 +1,5 @@
 import React from "react";
-import UseInput from "../hooks/UseInput";
+import { UseInput } from "../hooks";
 
 const VolunteerForm = () => {
   const [firstName, bindFirstName, resetFirstName] = UseInput("");
