@@ -6,3 +6,7 @@
     @include heading-4;
   }
 }
+
+.clearfix {
+  @include clearfix;
+}
