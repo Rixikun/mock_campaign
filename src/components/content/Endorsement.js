@@ -16,8 +16,6 @@ const Endorsement = ({ peopleData, fetchPeople }) => {
     <div>
       <h1>Endorsement</h1>
       <div className="endorsement__container">
-        "hello"
-        {console.log(">>>>>>>>>>", peopleData)}
         {peopleData &&
           peopleData.users &&
           peopleData.users.map((person) => (

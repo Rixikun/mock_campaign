@@ -9,6 +9,7 @@ import Merchandise from "./Merchandise";
 import Navigation from "./Navigation";
 import Stances from "./Stances";
 import Volunteer from "./Volunteer";
+import VolunteerForm from "./VolunteerForm";
 
 export {
   AboutCandidate,
@@ -22,4 +23,5 @@ export {
   Navigation,
   Stances,
   Volunteer,
+  VolunteerForm,
 };

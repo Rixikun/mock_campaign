@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
-import InputText from "../ui/InputText";
+import UserForm from "./VolunteerForm";
 
 const Volunteer = () => {
   return (
     <div>
       <h2>Volunteer</h2>
       <div>
-        <InputText />
+        Wow! So happy to receive your time and efforts! Please fill out this
+        form to join our team :)
       </div>
+      <UserForm />
     </div>
   );
 };
