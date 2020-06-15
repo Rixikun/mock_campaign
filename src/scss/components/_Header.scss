@@ -1,0 +1,8 @@
+@import "../abstracts/mixins";
+
+.header {
+  background-color: $color-teal;
+  h4 {
+    @include heading-4;
+  }
+}

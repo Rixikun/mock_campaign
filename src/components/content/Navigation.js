@@ -18,7 +18,7 @@ const Navigation = () => {
     </li>
   ));
   return (
-    <div>
+    <div className="navigation">
       <ul>
         {pages}
         <li key="HowTo">
