@@ -12,6 +12,11 @@ body {
   font-family: "Heebo", sans-serif;
 }
 
+// to help see content in dev
+.App {
+  background-color: lightcoral;
+}
+
 //stylesheets
 //pages
 @import "scss/pages/About";

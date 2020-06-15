@@ -26,11 +26,18 @@
 
 // flex
 
+//row
 @mixin flex-row-spaceEvenly {
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
 }
-
+@mixin flex-row-spaceBetween {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+//col
 @mixin flex-col-spaceEvenly {
   display: flex;
   flex-direction: column;

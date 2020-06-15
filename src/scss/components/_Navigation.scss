@@ -4,13 +4,19 @@
   color: $color-teal-lighter;
 }
 
-.navigation {
-  ul {
-    @include breakpoint(phone) {
-      @include flex-col-spaceEvenly;
-    }
-    @include breakpoint(phablet) {
-      @include flex-row-spaceEvenly;
-    }
+.navigation__pages {
+  position: fixed;
+  right: 5vw;
+  @include breakpoint(phone) {
+    @include flex-col-spaceEvenly;
+  }
+  @include breakpoint(phablet) {
+    @include flex-row-spaceEvenly;
+    position: relative;
+  }
+
+  li {
+    margin: 5px;
+    list-style: none;
   }
 }

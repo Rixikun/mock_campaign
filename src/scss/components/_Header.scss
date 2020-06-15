@@ -5,6 +5,8 @@
   h4 {
     @include heading-4;
   }
+  @include flex-row-spaceEvenly;
+  align-items: baseline;
 }
 
 .clearfix {

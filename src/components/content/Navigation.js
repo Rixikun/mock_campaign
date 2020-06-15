@@ -29,25 +29,25 @@ const Navigation = () => {
   // toggle dropdown list Component
   function DropDown() {
     const [display, setDisplay] = useState(false);
-    const result = display ? pages : null;
+    const result = display ? (
+      <ul className="navigation__pages">{pages}</ul>
+    ) : null;
     function toggle(e) {
       e.preventDefault();
       setDisplay(!display);
     }
 
     return (
-      <div>
+      <>
         <a className="fa fa-chevron-down" onClick={(e) => toggle(e)}></a>
         {result}
-      </div>
+      </>
     );
   }
 
   return (
     <div className="navigation">
-      <ul>
-        <DropDown />
-      </ul>
+      <DropDown />
     </div>
   );
 };
