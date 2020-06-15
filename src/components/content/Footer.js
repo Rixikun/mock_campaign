@@ -1,13 +1,36 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import UseInput from "../hooks/UseInput";
 
 import Navigation from "./Navigation";
 
 const Footer = () => {
+  const [email, bindEmail, resetEmail] = UseInput("");
+  const submitHandler = (e) => {
+    e.preventDefault();
+    resetEmail();
+  };
+
   return (
     <div>
-      Footer Contact: Email: candidate@email.com Phone: 1 234-456-7890 Social
-      Media: Fb Twitter IG Subscribe to our Newsletter
+      Footer Contact:
+      <br />
+      Email: candidate@email.com
+      <br />
+      Phone: 1 234-456-7890 Social
+      <br />
+      Media: Fb Twitter IG
+      <br />
+      <div>
+        Subscribe to our Newsletter
+        <br />
+        <form onSubmit={submitHandler}>
+          <div>
+            <label>Email</label>
+            <input type="text" {...bindEmail}></input>
+          </div>
+          <button>Submit</button>
+        </form>
+      </div>
       <Navigation />
     </div>
   );
