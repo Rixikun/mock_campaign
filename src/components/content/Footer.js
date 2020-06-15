@@ -21,7 +21,7 @@ const Footer = () => {
       Media: Fb Twitter IG
       <br />
       <div>
-        Subscribe to our Newsletter
+        Subscribe to our Newsletter:
         <br />
         <form onSubmit={submitHandler}>
           <div>
