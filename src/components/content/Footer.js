@@ -1,5 +1,5 @@
 import React from "react";
-import UseInput from "../hooks/UseInput";
+import { UseInput } from "../hooks";
 
 import Navigation from "./Navigation";
 
