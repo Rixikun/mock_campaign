@@ -1,0 +1,30 @@
+//reads all the scss files
+
+//abstracts
+@import "scss/abstracts/vars";
+@import "scss/abstracts/mixins";
+
+//fonts
+
+@import url("https://fonts.googleapis.com/css2?family=Heebo&family=Open+Sans&display=swap");
+
+body {
+  font-family: "Heebo", sans-serif;
+}
+
+//stylesheets
+//pages
+@import "scss/pages/About";
+@import "scss/pages/Donate";
+@import "scss/pages/Endorsement";
+@import "scss/pages/Home";
+@import "scss/pages/HowTo";
+@import "scss/pages/Merchandise";
+@import "scss/pages/Stances";
+@import "scss/pages/Volunteer";
+//components
+@import "scss/components/Button";
+@import "scss/components/Footer";
+@import "scss/components/Header";
+@import "scss/components/Input";
+@import "scss/components/Navigation";
