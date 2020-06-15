@@ -19,7 +19,14 @@ const Navigation = () => {
   ));
   return (
     <div>
-      <ul>{pages}</ul>
+      <ul>
+        {pages}
+        <li key="HowTo">
+          <NavLink to="/HowTo" activeClassName="link__active">
+            How To Vote
+          </NavLink>
+        </li>
+      </ul>
     </div>
   );
 };

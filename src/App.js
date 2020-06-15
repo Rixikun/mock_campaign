@@ -33,6 +33,9 @@ function App() {
             <Route path="/Merchandise">
               <C.Merchandise />
             </Route>
+            <Route path="/HowTo">
+              <C.HowTo />
+            </Route>
             <Route path="/">
               <C.Home />
             </Route>
