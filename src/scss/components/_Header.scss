@@ -4,6 +4,7 @@
   @include flex-row-spaceEvenly;
   background-color: $color-teal;
   align-items: baseline;
+  height: 100px;
 
   .header__left {
     text-align: center;

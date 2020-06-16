@@ -38,7 +38,9 @@ const Navigation = () => {
       <>
         <ul className="navigation__pages">{pages}</ul>
         <div className="navigation__close">
-          <a className="fa fa-times" onClick={(e) => toggle(e)}></a>
+          <div className="close__container">
+            <a className="fa fa-times" onClick={(e) => toggle(e)}></a>
+          </div>
         </div>
       </>
     ) : null;

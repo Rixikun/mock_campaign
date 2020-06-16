@@ -1,11 +1,29 @@
 @import "../abstracts/mixins";
 
-.link__active {
-  color: $color-teal-lighter;
-}
-
 .navigation {
   @include flex-row-spaceEvenly;
+  .link__active {
+    color: $color-teal-lighter;
+  }
+  a {
+    color: $color-sky-light;
+    &:visited {
+      color: $color-ink-lightest;
+    }
+    &:hover {
+      color: $color-sky-lighter;
+    }
+
+    @include breakpoint(phablet) {
+      color: $color-sky-lighter;
+      &:link {
+        color: $color-sky-lighter;
+      }
+      &:visited {
+        color: $color-ink-light;
+      }
+    }
+  }
 }
 
 .navigation__close {
@@ -14,23 +32,22 @@
   left: 0;
   height: 100vh;
   width: 100vw;
-  background-image: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0.5)
-  );
+  background: rgba(33, 43, 54, 0.5); //color-ink
 
   @include breakpoint(phablet) {
     display: none;
   }
 
+  .close__container {
+    height: 100px;
+    width: calc(20vw + 20px);
+    margin-left: auto;
+  }
+
   a {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 16px;
-    width: 16px;
-    padding: 30px calc(10vw - 8px);
+    display: flex;
+    justify-content: center;
+    margin-top: 42px;
   }
 }
 
@@ -41,7 +58,7 @@
   height: 100vh;
   width: calc(80vw - 20px);
   z-index: 1;
-  background: $color-teal-dark;
+  background: $color-ink;
   margin: 0;
   padding: 20px 0 0 20px;
 
