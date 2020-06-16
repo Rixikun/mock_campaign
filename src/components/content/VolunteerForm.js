@@ -16,25 +16,48 @@ const VolunteerForm = () => {
     alert(`Thank you ${firstName}`);
   };
   return (
-    <div>
+    <div className="volunteer__form">
       <form onSubmit={submitHandler}>
-        <div>
+        <div className="field">
           <label>First Name</label>
-          <input type="text" {...bindFirstName}></input>
+          <input
+            type="text"
+            {...bindFirstName}
+            required
+            placeholder="First name"
+          ></input>
         </div>
-        <div>
+        <div className="field">
           <label>Last Name</label>
-          <input type="text" {...bindLastName}></input>
+          <input
+            type="text"
+            {...bindLastName}
+            required
+            placeholder="Last name"
+          ></input>
         </div>
-        <div>
+        <div className="field">
           <label>Email</label>
-          <input type="text" {...bindEmail}></input>
+          <input
+            type="email"
+            {...bindEmail}
+            required
+            placeholder="name@email.com"
+          ></input>
         </div>
-        <div>
+        <div className="field">
           <label>Phone</label>
-          <input type="text" {...bindPhoneNumber}></input>
+          <input
+            type="tel"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            {...bindPhoneNumber}
+            required
+            placeholder="123-456-7890"
+          ></input>
         </div>
-        <button>Submit</button>
+        <div className="submit">
+          <button className="btn btn-primary">Submit</button>
+        </div>
       </form>
     </div>
   );

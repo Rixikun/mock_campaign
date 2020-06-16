@@ -28,7 +28,7 @@ const Footer = () => {
             <label>Email</label>
             <input type="text" {...bindEmail}></input>
           </div>
-          <button>Submit</button>
+          <button className="btn btn-primary">Submit</button>
         </form>
       </div>
       {/* <Navigation /> */}
