@@ -1,3 +1,25 @@
-button {
-  background-color: $color-blue;
+.btn-primary {
+  background-color: $color-teal;
+  border-radius: 10px;
+  padding: 5px 20px;
+  border: none;
+  color: $color-teal-darker;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $color-teal-dark;
+    color: $color-teal-lighter;
+  }
+
+  &:active,
+  &:focus {
+    background-color: $color-teal-darker !important;
+    color: $color-teal-light !important;
+    outline: none !important;
+    box-shadow: 2px 2px 5px $color-teal-darker, -1px -1px 5px $color-teal !important;
+  }
+
+  &:visited {
+    background-color: $color-white !important;
+  }
 }

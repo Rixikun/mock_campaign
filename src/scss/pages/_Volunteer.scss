@@ -1,0 +1,39 @@
+@import "scss/abstracts/mixins";
+
+.volunteer {
+  @include flex-col-spaceEvenly;
+
+  .title {
+    @include flex-row-spaceEvenly;
+    margin-top: 10px;
+  }
+
+  .description {
+    width: 85vw;
+    max-width: 500px;
+    margin: 5px auto 10px;
+    padding-bottom: 10px;
+    border-bottom: solid $color-teal-lighter 1px;
+    text-align: center;
+  }
+
+  .volunteer__form {
+    width: 80vw;
+    margin: auto;
+
+    .field {
+      @include flex-row-spaceBetween;
+      margin: 10px 0;
+    }
+
+    .submit {
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    @include breakpoint(phablet) {
+      width: 50vw;
+      max-width: 500px;
+    }
+  }
+}
