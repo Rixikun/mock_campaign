@@ -1,0 +1,37 @@
+@import "../abstracts/mixins";
+
+.about {
+  @include flex-col-spaceEvenly;
+
+  padding: 0 2vw;
+  .title {
+    margin: auto;
+
+    h1 {
+      @include heading-1;
+      text-align: center;
+    }
+  }
+
+  .description {
+    width: 80vw;
+    margin: auto;
+    @include breakpoint(phablet) {
+      width: 60vw;
+    }
+  }
+}
+
+.photo {
+  @include flex-col-spaceEvenly;
+  align-items: center;
+  background: $color-sky-lighter;
+  height: 400px;
+  width: 80vw;
+  margin: auto;
+}
+
+.photo2 {
+  height: 100px;
+  width: 100px;
+}
