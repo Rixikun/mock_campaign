@@ -4,12 +4,25 @@
   @include flex-col-spaceEvenly;
 
   padding: 0 2vw;
+
+  .collapse {
+    &:not(.show) {
+      height: 200px;
+      display: block !important;
+    }
+  }
+
+  .collapsing {
+    min-height: 200px !important;
+  }
+
   .title {
     margin: auto;
 
     h3 {
       @include heading-3;
       text-align: center;
+      margin-top: 10px;
     }
   }
 
@@ -28,14 +41,27 @@
         margin-top: 20px;
         margin-right: 20%;
       }
+      .dropdown__container {
+        text-align: center;
+
+        height: calc(100% - 120px);
+        i {
+          margin-right: 10px;
+          margin-top: 50px;
+          color: white;
+        }
+      }
     }
     .description {
-      max-height: 200px;
       max-width: 50vw;
       overflow: hidden;
       padding-right: 10px;
       padding-bottom: 10px;
       border-bottom: solid #ccc 1px;
+
+      p {
+        padding: 10px 0 5px 0;
+      }
 
       span {
         position: absolute;
@@ -44,12 +70,9 @@
       }
 
       @include breakpoint(phablet) {
-        max-height: none;
+        height: 100%;
         padding: 0;
       }
-    }
-    .expanded {
-      max-height: none;
     }
   }
 }
