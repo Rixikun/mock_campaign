@@ -1,0 +1,50 @@
+@import "scss/abstracts/mixins";
+
+.home {
+  @include flex-col-spaceEvenly;
+}
+
+.home__section {
+  @include flex-col-spaceEvenly;
+  height: 90vh;
+  width: auto;
+  border-top: solid 10px white;
+  border-bottom: solid 10px white;
+  padding: 10px 20px;
+}
+
+.home__landing {
+  @include flex-col-spaceEvenly;
+  font-size: 1.8em;
+  font-weight: 600;
+  .landing__info {
+    @include flex-row-spaceEvenly;
+  }
+}
+
+.grid__container {
+  @include breakpoint(phablet) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "section1 section2"
+      "section3 section4";
+    width: 100%;
+    grid-gap: 10px;
+    height: 100%;
+  }
+}
+
+.section1 {
+  grid-area: section1;
+}
+.section2 {
+  grid-area: section2;
+}
+.section3 {
+  grid-area: section3;
+}
+.section4 {
+  grid-area: section4;
+}
