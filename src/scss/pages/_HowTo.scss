@@ -1,0 +1,49 @@
+@import "scss/abstracts/mixins";
+
+.howto {
+  @include flex-col-spaceEvenly;
+  .title {
+    @include flex-row-spaceEvenly;
+    margin-top: 10px;
+  }
+
+  @include breakpoint(phablet) {
+    .photo5 {
+      width: calc(16 * 5vw);
+      height: calc(9 * 5vw);
+    }
+  }
+
+  .description {
+    width: 85vw;
+    max-width: 500px;
+    margin: 5px auto 10px;
+    padding-bottom: 10px;
+    border-bottom: solid $color-teal-lighter 1px;
+    text-align: center;
+  }
+
+  &__container {
+    @include flex-col-spaceEvenly;
+    margin: 20px auto;
+    h5 {
+      text-align: center;
+    }
+
+    .item1,
+    .item2 {
+      margin: 10px 20px;
+    }
+
+    @include breakpoint(phablet) {
+      max-width: 800px;
+      .item1 {
+        @include flex-row-spaceEvenly;
+        p {
+          max-width: 50%;
+          margin: 10px 10px 40px 20px;
+        }
+      }
+    }
+  }
+}
