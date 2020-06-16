@@ -1,0 +1,60 @@
+@import "scss/abstracts/mixins";
+
+.endorsement {
+  @include flex-col-spaceEvenly;
+
+  padding: 0 2vw;
+  .title {
+    margin: auto;
+
+    h3 {
+      @include heading-3;
+      text-align: center;
+    }
+  }
+
+  .person {
+    // @include flex-row-spaceBetween;
+    display: flex;
+    .photo__container {
+      width: 100%;
+      max-width: 30vw;
+      justify-content: end;
+      .photo2 {
+        text-align: center;
+        margin-top: 20px;
+        margin-right: 20%;
+      }
+    }
+    .description {
+      max-height: 200px;
+      max-width: 50vw;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-right: 10px;
+      padding-bottom: 10px;
+      border-bottom: solid #ccc 1px;
+      @include breakpoint(phablet) {
+        max-height: none;
+        padding: 0;
+      }
+    }
+    .expanded {
+      max-height: none;
+    }
+  }
+}
+
+.publicity__container {
+  @include flex-row-spaceEvenly;
+  flex-wrap: wrap;
+  .photo4 {
+    max-height: 40vw;
+    max-width: 40vw;
+    margin: 10px 0;
+  }
+}
+
+.endorsement__container {
+  @include flex-col-spaceEvenly;
+}
