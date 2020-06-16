@@ -8,6 +8,23 @@
 //fonts
 @import url("https://fonts.googleapis.com/css2?family=Heebo&family=Open+Sans&display=swap");
 
+//stylesheets
+//pages
+@import "scss/pages/About";
+@import "scss/pages/Donate";
+@import "scss/pages/Endorsement";
+@import "scss/pages/Home";
+@import "scss/pages/HowTo";
+@import "scss/pages/Merchandise";
+@import "scss/pages/Stances";
+@import "scss/pages/Volunteer";
+//components
+@import "scss/components/Button";
+@import "scss/components/Footer";
+@import "scss/components/Header";
+@import "scss/components/Input";
+@import "scss/components/Navigation";
+
 body {
   font-family: "Heebo", sans-serif;
 }
@@ -52,20 +69,3 @@ body {
 .App {
   background-color: lightcoral;
 }
-
-//stylesheets
-//pages
-@import "scss/pages/About";
-@import "scss/pages/Donate";
-@import "scss/pages/Endorsement";
-@import "scss/pages/Home";
-@import "scss/pages/HowTo";
-@import "scss/pages/Merchandise";
-@import "scss/pages/Stances";
-@import "scss/pages/Volunteer";
-//components
-@import "scss/components/Button";
-@import "scss/components/Footer";
-@import "scss/components/Header";
-@import "scss/components/Input";
-@import "scss/components/Navigation";
