@@ -2,10 +2,14 @@ import React from "react";
 
 const Donate = () => {
   return (
-    <div>
-      <h2>Donate</h2>
-      <h6>This is a mock-website, don't complete donation transaction..</h6>
-      <div>
+    <div className="donate">
+      <div className="title">
+        <h2>Donate</h2>
+      </div>
+      <div className="description">
+        <h6>This is a mock-website, don't complete donation transaction..</h6>
+      </div>
+      <div className="donation__container">
         <form
           action="https://www.paypal.com/cgi-bin/webscr"
           method="post"
