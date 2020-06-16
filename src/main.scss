@@ -23,6 +23,7 @@
 @import "scss/components/Footer";
 @import "scss/components/Header";
 @import "scss/components/Input";
+@import "scss/components/Media";
 @import "scss/components/Navigation";
 
 body {
@@ -36,33 +37,6 @@ body {
   border-top: solid 10px white;
   border-bottom: solid 10px white;
   padding: 10px 20px;
-}
-
-.photo {
-  @include flex-col-spaceEvenly;
-  align-items: center;
-  background: $color-sky-lighter;
-  height: 400px;
-  width: 80vw;
-  margin: auto;
-}
-
-.photo2 {
-  height: 100px;
-  width: 100px;
-}
-
-.photo3 {
-  height: 171px;
-  width: 304px;
-  @include breakpoint(phablet) {
-    height: 360px;
-    width: 640px;
-  }
-}
-.photo4 {
-  height: 200px;
-  width: 200px;
 }
 
 // to help see content in dev

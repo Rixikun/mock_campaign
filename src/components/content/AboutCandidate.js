@@ -7,7 +7,7 @@ const AboutCandidate = () => {
       <div className="title">
         <h1>About Candidate</h1>
       </div>
-      <div className="photo photo1">(portrait shot)</div>
+      <div className="photo">(portrait shot)</div>
       <div className="description">
         <p>
           <br />
