@@ -3,7 +3,7 @@ import React from "react";
 const Home = () => {
   return (
     <div className="home">
-      <div className="home__section home__landing">
+      <div className="section home__landing">
         <div className="landing__info">
           Meet Candidate ___ !
           <br />
@@ -14,7 +14,7 @@ const Home = () => {
         <button>Volunteer here</button>
       </div>
       <div className="grid__container">
-        <div className="home__section section1">
+        <div className="section section1">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget
             dui turpis. Nunc ante arcu, euismod eu condimentum condimentum,
@@ -28,7 +28,7 @@ const Home = () => {
             ornare.
           </p>
         </div>
-        <div className="home__section section2">
+        <div className="section section2">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget
             dui turpis. Nunc ante arcu, euismod eu condimentum condimentum,
@@ -42,7 +42,7 @@ const Home = () => {
             ornare.
           </p>
         </div>
-        <div className="home__section section3">
+        <div className="section section3">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget
             dui turpis. Nunc ante arcu, euismod eu condimentum condimentum,
@@ -56,7 +56,7 @@ const Home = () => {
             ornare.
           </p>
         </div>
-        <div className="home__section section4">
+        <div className="section section4">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget
             dui turpis. Nunc ante arcu, euismod eu condimentum condimentum,
@@ -72,7 +72,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="home__section section5">
+      <div className="section section5">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget dui
           turpis. Nunc ante arcu, euismod eu condimentum condimentum, eleifend

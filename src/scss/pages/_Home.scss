@@ -2,15 +2,19 @@
 
 .home {
   @include flex-col-spaceEvenly;
-}
 
-.home__section {
-  @include flex-col-spaceEvenly;
-  height: 90vh;
-  width: auto;
-  border-top: solid 10px white;
-  border-bottom: solid 10px white;
-  padding: 10px 20px;
+  .section1 {
+    grid-area: section1;
+  }
+  .section2 {
+    grid-area: section2;
+  }
+  .section3 {
+    grid-area: section3;
+  }
+  .section4 {
+    grid-area: section4;
+  }
 }
 
 .home__landing {
@@ -34,17 +38,4 @@
     grid-gap: 10px;
     height: 100%;
   }
-}
-
-.section1 {
-  grid-area: section1;
-}
-.section2 {
-  grid-area: section2;
-}
-.section3 {
-  grid-area: section3;
-}
-.section4 {
-  grid-area: section4;
 }

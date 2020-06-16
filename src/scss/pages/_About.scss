@@ -21,17 +21,3 @@
     }
   }
 }
-
-.photo {
-  @include flex-col-spaceEvenly;
-  align-items: center;
-  background: $color-sky-lighter;
-  height: 400px;
-  width: 80vw;
-  margin: auto;
-}
-
-.photo2 {
-  height: 100px;
-  width: 100px;
-}
