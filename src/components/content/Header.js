@@ -7,9 +7,15 @@ const Header = () => {
   return (
     <div className="header">
       <div className="clearfix"></div>
-      <h4>Candidate For Position!</h4>
-      <Link to="/">Home</Link>
-      <Navigation />
+      <div className="header__left">
+        <h4>Candidate For Position!</h4>
+        <div>
+          <Link to="/">Home</Link>
+        </div>
+      </div>
+      <div className="header__right">
+        <Navigation />
+      </div>
     </div>
   );
 };

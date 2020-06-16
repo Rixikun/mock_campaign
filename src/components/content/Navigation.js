@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import Media from "react-media";
 
 const Navigation = () => {
   const names = [
@@ -28,14 +29,19 @@ const Navigation = () => {
 
   // toggle dropdown list Component
   function DropDown() {
-    const [display, setDisplay] = useState(false);
-    const result = display ? (
-      <ul className="navigation__pages">{pages}</ul>
-    ) : null;
     function toggle(e) {
       e.preventDefault();
       setDisplay(!display);
     }
+    const [display, setDisplay] = useState(false);
+    const result = display ? (
+      <>
+        <ul className="navigation__pages">{pages}</ul>
+        <div className="navigation__close">
+          <a className="fa fa-times" onClick={(e) => toggle(e)}></a>
+        </div>
+      </>
+    ) : null;
 
     return (
       <>
@@ -47,7 +53,12 @@ const Navigation = () => {
 
   return (
     <div className="navigation">
-      <DropDown />
+      <Media query="(max-width: 37.5em">
+        <DropDown />
+      </Media>
+      <Media query="(min-width: 37.5em">
+        <ul className="navigation__pages">{pages}</ul>
+      </Media>
     </div>
   );
 };

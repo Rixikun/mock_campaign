@@ -31,7 +31,7 @@ const Footer = () => {
           <button>Submit</button>
         </form>
       </div>
-      <Navigation />
+      {/* <Navigation /> */}
     </div>
   );
 };

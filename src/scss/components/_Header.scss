@@ -1,12 +1,23 @@
 @import "../abstracts/mixins";
 
 .header {
+  @include flex-row-spaceEvenly;
   background-color: $color-teal;
+  align-items: baseline;
+
+  .header__left {
+    text-align: center;
+    margin: 2vh 0 2vh 5vw;
+    width: 70vw;
+  }
+
+  .header__right {
+    margin: auto;
+  }
+
   h4 {
     @include heading-4;
   }
-  @include flex-row-spaceEvenly;
-  align-items: baseline;
 }
 
 .clearfix {
