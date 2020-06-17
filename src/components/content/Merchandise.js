@@ -7,7 +7,7 @@ const Merchandise = () => {
   return (
     <div className="merchandise">
       <div className="title">
-        <h3>Merchandise</h3>
+        <h2>Merchandise</h2>
       </div>
       <div className="description">
         Support us and spread the word by purchasing one of our goods!

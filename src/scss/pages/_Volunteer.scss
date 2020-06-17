@@ -3,11 +3,6 @@
 .volunteer {
   @include flex-col-spaceEvenly;
 
-  .title {
-    @include flex-row-spaceEvenly;
-    margin-top: 10px;
-  }
-
   .description {
     width: 85vw;
     max-width: 500px;

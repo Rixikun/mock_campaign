@@ -1,12 +1,6 @@
 @import "../abstracts/mixins";
 
 .stances {
-  .title {
-    h2 {
-      @include heading-2;
-      text-align: center;
-    }
-  }
   .photo {
     margin-bottom: 20px;
   }

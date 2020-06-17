@@ -2,10 +2,6 @@
 
 .donate {
   @include flex-col-spaceEvenly;
-  .title {
-    @include flex-row-spaceEvenly;
-    margin-top: 10px;
-  }
 
   .description {
     width: 85vw;

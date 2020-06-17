@@ -2,7 +2,10 @@
 
 .home {
   @include flex-col-spaceEvenly;
-
+  padding: 0 20px;
+  .section {
+    border: none;
+  }
   .section1 {
     grid-area: section1;
   }
@@ -15,14 +18,13 @@
   .section4 {
     grid-area: section4;
   }
-}
-
-.home__landing {
-  @include flex-col-spaceEvenly;
-  font-size: 1.8em;
-  font-weight: 600;
-  .landing__info {
-    @include flex-row-spaceEvenly;
+  &__landing {
+    @include flex-col-spaceEvenly;
+    font-size: 1.8em;
+    font-weight: 600;
+    &__info {
+      @include flex-row-spaceEvenly;
+    }
   }
 }
 
@@ -30,7 +32,7 @@
   @include breakpoint(phablet) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 0.5fr 0.5fr;
     grid-template-areas:
       "section1 section2"
       "section3 section4";

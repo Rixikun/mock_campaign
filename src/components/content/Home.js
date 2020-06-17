@@ -4,14 +4,14 @@ const Home = () => {
   return (
     <div className="home">
       <div className="section home__landing">
-        <div className="landing__info">
+        <div className="home__landing__info">
           Meet Candidate ___ !
           <br />
           Representing X , Y , Z
           <br />
           Join now!
         </div>
-        <button>Volunteer here</button>
+        <button className="btn btn-primary">Volunteer here</button>
       </div>
       <div className="grid__container">
         <div className="section section1">

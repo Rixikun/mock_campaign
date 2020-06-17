@@ -32,7 +32,7 @@ body {
 
 .section {
   @include flex-col-spaceEvenly;
-  min-height: 90vh;
+  min-height: 50vh;
   width: auto;
   border-top: solid 10px white;
   border-bottom: solid 10px white;
@@ -41,5 +41,23 @@ body {
 
 // to help see content in dev
 .App {
-  background-color: lightcoral;
+  background-color: $color-orange-lighter;
+}
+
+.title {
+  @include flex-row-spaceEvenly;
+  margin-top: 10px;
+  h2 {
+    @include heading-2;
+    text-align: center;
+  }
+}
+
+.description {
+  width: 85vw;
+  max-width: 500px;
+  margin: 5px auto 10px;
+  padding-bottom: 10px;
+  border-bottom: solid $color-teal-lighter 1px;
+  text-align: center;
 }

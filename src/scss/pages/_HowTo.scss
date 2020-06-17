@@ -2,10 +2,6 @@
 
 .howto {
   @include flex-col-spaceEvenly;
-  .title {
-    @include flex-row-spaceEvenly;
-    margin-top: 10px;
-  }
 
   @include breakpoint(phablet) {
     .photo5 {

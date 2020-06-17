@@ -12,13 +12,13 @@ const Endorsement = ({ peopleData, fetchPeople }) => {
   const publicity = new Array(10).fill("company logo");
 
   return peopleData.loading ? (
-    <h3>Loading . . .</h3>
+    <h2>Loading . . .</h2>
   ) : peopleData.error ? (
-    <h4>{peopleData.error}</h4>
+    <h2>{peopleData.error}</h2>
   ) : (
     <div className="endorsement">
       <div className="title">
-        <h3>Endorsement</h3>
+        <h2>Endorsement</h2>
       </div>
       <div className="endorsement__container">
         {peopleData &&

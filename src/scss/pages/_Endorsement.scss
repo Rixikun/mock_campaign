@@ -16,16 +16,6 @@
     min-height: 200px !important;
   }
 
-  .title {
-    margin: auto;
-
-    h3 {
-      @include heading-3;
-      text-align: center;
-      margin-top: 10px;
-    }
-  }
-
   .person {
     // @include flex-row-spaceBetween;
     display: flex;

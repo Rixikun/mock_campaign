@@ -10,7 +10,7 @@ const StickerContainer = (props) => {
       <div className="field">
         <label>
           Stickers left <br />
-          {props.numOfStickers}
+          <span>{props.numOfStickers}</span>
         </label>
         <input
           type="number"
