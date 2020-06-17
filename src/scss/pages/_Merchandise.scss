@@ -1,0 +1,58 @@
+@import "scss/abstracts/mixins";
+
+.merchandise {
+  @include flex-col-spaceEvenly;
+  .title {
+    @include flex-row-spaceEvenly;
+    margin-top: 10px;
+  }
+
+  .description {
+    width: 85vw;
+    max-width: 500px;
+    margin: 5px auto 10px;
+    padding-bottom: 10px;
+    border-bottom: solid $color-teal-lighter 1px;
+    text-align: center;
+  }
+
+  .merchandise__container {
+    @include flex-col-spaceEvenly;
+    margin: 20px auto;
+    width: 90vw;
+    max-width: 800px;
+    text-align: center;
+    .stickers__container,
+    .shirts__container {
+      @include flex-row-spaceBetween;
+      margin: 10px;
+
+      .field {
+        @include flex-row-spaceBetween;
+        width: 50%;
+        input {
+          width: 60px;
+          height: 40px;
+        }
+
+        label {
+          text-align: left;
+          line-height: 1.2em;
+
+          span {
+            color: $color-teal-dark;
+            font-weight: bolder;
+          }
+        }
+      }
+
+      button {
+        max-width: 150px;
+        overflow: hidden;
+      }
+    }
+    @include breakpoint(phablet) {
+      width: 100%;
+    }
+  }
+}

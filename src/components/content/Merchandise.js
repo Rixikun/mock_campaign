@@ -5,10 +5,17 @@ import ShirtContainer from "../merch/ShirtContainer";
 
 const Merchandise = () => {
   return (
-    <div>
-      Merchandise
-      <StickerContainer />
-      <ShirtContainer />
+    <div className="merchandise">
+      <div className="title">
+        <h3>Merchandise</h3>
+      </div>
+      <div className="description">
+        Support us and spread the word by purchasing one of our goods!
+      </div>
+      <div className="merchandise__container">
+        <StickerContainer />
+        <ShirtContainer />
+      </div>
     </div>
   );
 };
