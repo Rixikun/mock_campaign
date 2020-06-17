@@ -24,14 +24,22 @@
 
   a {
     font-weight: bolder;
-    color: $color-orange-lighter;
+    color: $color-orange-lighter !important;
 
     &:visited {
-      color: $color-ink-lightest;
+      color: $color-ink-lightest !important;
     }
     &:hover {
-      color: $color-sky-lighter;
-      text-decoration: none;
+      color: $color-sky-lighter !important;
+    }
+
+    @include breakpoint(phablet) {
+      &:visited {
+        color: $color-ink-light !important;
+      }
+      &:hover {
+        color: $color-sky-lighter !important;
+      }
     }
   }
 }

@@ -12,6 +12,7 @@
     }
     &:hover {
       color: $color-sky-lighter;
+      text-decoration: none;
     }
 
     @include breakpoint(phablet) {
