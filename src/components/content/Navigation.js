@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Media from "react-media";
 
-const Navigation = () => {
+const Navigation = (props) => {
   const names = [
     "About",
     "Stances",
@@ -56,7 +56,13 @@ const Navigation = () => {
   return (
     <div className="navigation">
       <Media query="(max-width: 37.5em">
-        <DropDown />
+        <>
+          {props && props.inFooter ? (
+            <ul className="navigation__footer">{pages}</ul>
+          ) : (
+            <DropDown />
+          )}
+        </>
       </Media>
       <Media query="(min-width: 37.5em">
         <ul className="navigation__pages">{pages}</ul>

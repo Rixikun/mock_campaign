@@ -41,7 +41,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer__right">
-        <Navigation />
+        <Navigation inFooter="inFooter" />
       </div>
     </div>
   );
