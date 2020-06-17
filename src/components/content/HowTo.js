@@ -30,7 +30,7 @@ const HowTo = () => {
               elementum ac, egestas vel lorem. Sed tempor scelerisque lacus.
               Mauris pretium a est et ornare.
             </p>
-            <div className="photo photo5">(accompanying img)</div>
+            <div className="photo photo3">(accompanying img)</div>
           </div>
           <div className="item2">
             <p>
@@ -45,7 +45,7 @@ const HowTo = () => {
               nisi tempor sollicitudin. Proin quis elit quis tortor congue
               sodales.
             </p>
-            <div className="photo photo5">(google map)</div>
+            <div className="photo photo3">(google map)</div>
           </div>
         </div>
       </div>

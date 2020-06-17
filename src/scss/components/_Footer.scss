@@ -7,8 +7,9 @@
   color: $color-teal-lighter;
   font-size: 0.9em;
 
-  &__container {
+  &__top {
     width: 85vw;
+    max-width: 1200px;
   }
 
   &__left,
@@ -36,7 +37,7 @@
   }
 
   @include breakpoint(phablet) {
-    &__container {
+    &__top {
       @include flex-row-spaceEvenly;
     }
     &__left,
@@ -45,6 +46,7 @@
       margin: 10px;
     }
     &__right {
+      max-width: 1200px;
       a {
         color: $color-ink-lightest !important;
         &:hover {
@@ -56,6 +58,7 @@
     .field {
       input {
         width: 100%;
+        max-width: 300px;
       }
     }
   }

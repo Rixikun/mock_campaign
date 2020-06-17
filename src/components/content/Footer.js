@@ -12,7 +12,7 @@ const Footer = () => {
 
   return (
     <div className="footer">
-      <div className="footer__container">
+      <div className="footer__top">
         <div className="footer__left">
           <div className="contact">
             <h4>CONTACT</h4>
