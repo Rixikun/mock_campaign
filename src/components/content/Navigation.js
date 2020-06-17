@@ -55,17 +55,16 @@ const Navigation = (props) => {
 
   return (
     <div className="navigation">
-      <Media query="(max-width: 37.5em">
-        <>
-          {props && props.inFooter ? (
-            <ul className="navigation__footer">{pages}</ul>
-          ) : (
-            <DropDown />
-          )}
-        </>
+      <Media query="(max-width: 37.5em)">
+        {props?.inFooter ? (
+          <ul className="navigation__footer">{pages}</ul>
+        ) : (
+          <DropDown />
+        )}
       </Media>
-      <Media query="(min-width: 37.5em">
-        <ul className="navigation__pages">{pages}</ul>
+
+      <Media query="(min-width: 37.5em)">
+          <ul className="navigation__pages">{pages}</ul>
       </Media>
     </div>
   );
