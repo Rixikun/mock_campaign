@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import store from "./redux/store";
 import * as C from "./components/content";
@@ -13,7 +13,6 @@ function App() {
       <Router>
         <div className="App">
           <C.Header />
-          <Link to="/HowTo">Load For Safari</Link>
           <Switch>
             <Route path="/About" component={C.AboutCandidate} />
             <Route path="/Stances" component={C.Stances} />
