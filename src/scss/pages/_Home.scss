@@ -22,6 +22,11 @@
     @include flex-col-spaceEvenly;
     font-size: 1.8em;
     font-weight: 600;
+    align-items: center;
+    button {
+      width: 200px;
+      height: 50px;
+    }
     &__info {
       @include flex-row-spaceEvenly;
     }
@@ -37,7 +42,7 @@
       "section1 section2"
       "section3 section4";
     width: 100%;
-    grid-gap: 10px;
+    grid-gap: 20px;
     height: 100%;
   }
 }
