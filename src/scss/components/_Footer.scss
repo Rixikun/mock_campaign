@@ -1,0 +1,62 @@
+@import "scss/abstracts/mixins";
+
+.footer {
+  @include flex-col-spaceEvenly;
+  align-items: center;
+  background-color: $color-teal-darker;
+  color: $color-teal-lighter;
+  font-size: 0.9em;
+
+  &__container {
+    width: 85vw;
+  }
+
+  &__left,
+  &__mid,
+  &__right {
+    margin: 10px 0;
+    // border: solid 1px white;
+  }
+
+  &__left {
+    .contact {
+      margin-top: 20px;
+      h4 {
+        @include heading-4;
+      }
+    }
+  }
+
+  .field {
+    margin: 10px 0;
+    input {
+      width: 70%;
+      height: 30px;
+    }
+  }
+
+  @include breakpoint(phablet) {
+    &__container {
+      @include flex-row-spaceEvenly;
+    }
+    &__left,
+    &__mid {
+      width: 100%;
+      margin: 10px;
+    }
+    &__right {
+      a {
+        color: $color-ink-lightest !important;
+        &:hover {
+          color: $color-sky-lighter !important;
+        }
+      }
+    }
+
+    .field {
+      input {
+        width: 100%;
+      }
+    }
+  }
+}
