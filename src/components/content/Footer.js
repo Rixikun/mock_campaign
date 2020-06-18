@@ -35,8 +35,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer__mid">
-          Subscribe to our Newsletter:
-          <br />
+          <span>Subscribe to our Newsletter:</span>
           <form onSubmit={submitHandler}>
             <div className="field">
               <input
