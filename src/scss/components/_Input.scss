@@ -1,5 +1,11 @@
 input {
   border: none;
   border-radius: 10px;
-  padding: 0 5px;
+  padding: 0 10px;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 1px 1px 5px $color-sky, -1px -1px 5px $color-sky !important;
 }

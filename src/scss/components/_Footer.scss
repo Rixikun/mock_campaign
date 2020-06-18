@@ -22,9 +22,14 @@
 
   &__left {
     .contact {
+      @include flex-col-spaceEvenly;
+
       margin-top: 20px;
       h4 {
         @include heading-4;
+      }
+      span {
+        margin: 5px 0;
       }
     }
   }
@@ -35,6 +40,30 @@
       width: 70%;
       height: 30px;
     }
+  }
+
+  .social__container {
+    @include flex-col-spaceEvenly;
+    span {
+      margin: 10px 0;
+    }
+    &__icons {
+      @include flex-row-spaceBetween;
+      margin: 10px 0;
+      max-width: 30%;
+      a {
+        color: inherit;
+      }
+      i {
+        transform: scale(2);
+      }
+    }
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    box-shadow: 1px 1px 5px $color-teal-dark, -1px -1px 5px $color-teal-dark !important;
   }
 
   @include breakpoint(phablet) {

@@ -16,12 +16,23 @@ const Footer = () => {
         <div className="footer__left">
           <div className="contact">
             <h4>CONTACT</h4>
-            Email: candidate@email.com
-            <br />
-            Phone: 1 234-456-7890 Social
-            <br />
+            <span>Email: candidate@email.com</span>
+            <span>Phone: 1 234-456-7890</span>
           </div>
-          <div className="social">Media: Fb Twitter IG</div>
+          <div className="social__container">
+            <span>Follow us on</span>
+            <div className="social__container__icons">
+              <a href="#">
+                <i className="fa fa-facebook"></i>
+              </a>
+              <a href="#">
+                <i className="fa fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i className="fa fa-instagram"></i>
+              </a>
+            </div>
+          </div>
         </div>
         <div className="footer__mid">
           Subscribe to our Newsletter:
