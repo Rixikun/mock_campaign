@@ -38,7 +38,7 @@ const Navigation = (props) => {
       <>
         <ul className="navigation__pages">{pages}</ul>
         <div className="navigation__close">
-          <div className="close__container">
+          <div className="navigation__close__container">
             <a className="fa fa-times" onClick={(e) => toggle(e)}></a>
           </div>
         </div>
@@ -64,7 +64,11 @@ const Navigation = (props) => {
       </Media>
 
       <Media query="(min-width: 37.5em)">
+        {props?.inFooter ? (
+          <ul className="navigation__footer">{pages}</ul>
+        ) : (
           <ul className="navigation__pages">{pages}</ul>
+        )}
       </Media>
     </div>
   );

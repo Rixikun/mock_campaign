@@ -6,6 +6,7 @@
   background-color: $color-teal-darker;
   color: $color-teal-lighter;
   font-size: 0.9em;
+  min-height: 350px;
 
   &__top {
     width: 85vw;
@@ -37,6 +38,8 @@
   }
 
   @include breakpoint(phablet) {
+    min-height: 200px;
+
     &__top {
       @include flex-row-spaceEvenly;
     }
