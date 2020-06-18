@@ -2,8 +2,9 @@
 
 .merchandise {
   @include flex-col-spaceEvenly;
+  height: calc(100vh - 300px);
 
-  .merchandise__container {
+  &__container {
     @include flex-col-spaceEvenly;
     margin: 20px auto;
     width: 90vw;
@@ -38,6 +39,9 @@
         overflow: hidden;
       }
     }
+
+    // breakpoint: larger than mobile
+
     @include breakpoint(phablet) {
       width: 100%;
     }

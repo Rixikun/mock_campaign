@@ -3,6 +3,23 @@
 .home {
   @include flex-col-spaceEvenly;
   padding: 0 20px;
+
+  .grid__container {
+    // breakpoint: larger than mobile
+
+    @include breakpoint(phablet) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 0.5fr 0.5fr;
+      grid-template-areas:
+        "section1 section2"
+        "section3 section4";
+      width: 100%;
+      grid-gap: 20px;
+      height: 100%;
+    }
+  }
+
   .section {
     border: none;
   }
@@ -30,19 +47,5 @@
     &__info {
       @include flex-row-spaceEvenly;
     }
-  }
-}
-
-.grid__container {
-  @include breakpoint(phablet) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 0.5fr 0.5fr;
-    grid-template-areas:
-      "section1 section2"
-      "section3 section4";
-    width: 100%;
-    grid-gap: 20px;
-    height: 100%;
   }
 }

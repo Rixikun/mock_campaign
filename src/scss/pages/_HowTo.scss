@@ -3,22 +3,6 @@
 .howto {
   @include flex-col-spaceEvenly;
 
-  @include breakpoint(phablet) {
-    .photo5 {
-      width: calc(16 * 5vw);
-      height: calc(9 * 5vw);
-    }
-  }
-
-  .description {
-    width: 85vw;
-    max-width: 500px;
-    margin: 5px auto 10px;
-    padding-bottom: 10px;
-    border-bottom: solid $color-teal-lighter 1px;
-    text-align: center;
-  }
-
   &__container {
     @include flex-col-spaceEvenly;
     margin: 20px auto;
@@ -40,6 +24,15 @@
           margin: 10px 10px 40px 20px;
         }
       }
+    }
+  }
+
+  // breakpoint: larger than mobile
+
+  @include breakpoint(phablet) {
+    .photo5 {
+      width: calc(16 * 5vw);
+      height: calc(9 * 5vw);
     }
   }
 }

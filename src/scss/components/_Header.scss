@@ -6,14 +6,14 @@
   align-items: baseline;
   height: 100px;
 
-  .header__left {
+  &__left {
     text-align: center;
     margin: auto;
     margin-left: 5vw;
     width: 70vw;
   }
 
-  .header__right {
+  &__right {
     margin: auto;
   }
 
@@ -33,6 +33,8 @@
       color: $color-sky-lighter !important;
     }
 
+    // breakpoint: larger than mobile
+
     @include breakpoint(phablet) {
       &:visited {
         color: $color-ink-light !important;
@@ -42,8 +44,4 @@
       }
     }
   }
-}
-
-.clearfix {
-  @include clearfix;
 }

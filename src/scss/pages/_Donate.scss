@@ -3,16 +3,7 @@
 .donate {
   @include flex-col-spaceEvenly;
 
-  .description {
-    width: 85vw;
-    max-width: 500px;
-    margin: 5px auto 10px;
-    padding-bottom: 10px;
-    border-bottom: solid $color-teal-lighter 1px;
-    text-align: center;
-  }
-
-  .donation__container {
+  &__container {
     @include flex-row-spaceEvenly;
     margin: 20px auto;
   }

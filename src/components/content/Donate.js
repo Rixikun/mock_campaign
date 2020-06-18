@@ -9,7 +9,7 @@ const Donate = () => {
       <div className="description">
         <h6>This is a mock-website, don't complete donation transaction..</h6>
       </div>
-      <div className="donation__container">
+      <div className="donate__container">
         <form
           action="https://www.paypal.com/cgi-bin/webscr"
           method="post"

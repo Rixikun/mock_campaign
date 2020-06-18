@@ -4,16 +4,7 @@
   @include flex-col-spaceEvenly;
   min-height: calc(100vh - 300px);
 
-  .description {
-    width: 85vw;
-    max-width: 500px;
-    margin: 5px auto 10px;
-    padding-bottom: 10px;
-    border-bottom: solid $color-teal-lighter 1px;
-    text-align: center;
-  }
-
-  .volunteer__form {
+  &__form {
     width: 80vw;
     margin: auto;
 
@@ -26,6 +17,8 @@
       text-align: center;
       margin: 10px 0;
     }
+
+    // breakpoint: larger than mobile
 
     @include breakpoint(phablet) {
       width: 50vw;

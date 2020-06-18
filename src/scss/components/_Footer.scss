@@ -73,6 +73,8 @@
     box-shadow: 1px 1px 5px $color-teal-dark, -1px -1px 5px $color-teal-dark !important;
   }
 
+  // breakpoint: larger than mobile
+
   @include breakpoint(phablet) {
     min-height: 200px;
 
