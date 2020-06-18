@@ -2,6 +2,7 @@
 
 .volunteer {
   @include flex-col-spaceEvenly;
+  min-height: calc(100vh - 300px);
 
   .description {
     width: 85vw;
