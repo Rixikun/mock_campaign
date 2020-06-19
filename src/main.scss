@@ -32,10 +32,7 @@ body {
 
 .section {
   @include flex-col-spaceEvenly;
-  min-height: 50vh;
   width: auto;
-  border-top: solid 10px white;
-  border-bottom: solid 10px white;
   padding: 10px 20px;
 }
 

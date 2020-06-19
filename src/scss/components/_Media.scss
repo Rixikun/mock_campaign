@@ -14,12 +14,8 @@
 }
 // 16:9 video
 .photo3 {
-  height: 171px;
-  width: 304px;
-  @include breakpoint(phablet) {
-    height: 360px;
-    width: 640px;
-  }
+  height: calc(9 * 40px);
+  width: calc(16 * 40px);
 }
 //large icon
 .photo4 {
