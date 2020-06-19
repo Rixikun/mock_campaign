@@ -4,9 +4,52 @@
   @include flex-col-spaceEvenly;
   padding: 0 20px;
 
+  &__container {
+    max-width: 80vw;
+    margin: auto;
+    &__redirect {
+      @include flex-row-spaceBetween;
+      margin: 50px auto;
+      .section__toAbout,
+      .section__toSocialMedia {
+        width: 50%;
+      }
+      .section__toSocialMedia {
+        margin: 20px 0 auto 0;
+      }
+      .social__container {
+        @include flex-col-spaceEvenly;
+        text-align: center;
+        &__icons {
+          min-width: 120px;
+          margin: auto;
+        }
+        span {
+          display: none;
+        }
+      }
+    }
+    .section__toVolunteer {
+      .photo {
+        height: 100vh;
+        width: 100vw;
+        max-height: 100vh;
+        max-width: 100vw;
+        transform: translate(calc(-10vw - 10px));
+      }
+      @include breakpoint(phablet) {
+        .photo {
+          height: 100vh;
+          width: 100vw;
+          min-height: 600px;
+          height: 80vh;
+        }
+      }
+    }
+  }
+
   .grid__container {
     // breakpoint: larger than mobile
-
     @include breakpoint(phablet) {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -32,17 +75,74 @@
   .section4 {
     grid-area: section4;
   }
+  .home__press {
+    @include flex-col-spaceEvenly;
+    padding-top: 20px;
+    .description {
+      border: none;
+      margin: auto 10px;
+      text-align: start;
+      h3 {
+        text-align: center;
+      }
+    }
+    .photo__container {
+      margin: 10px;
+    }
+
+    @include breakpoint(phablet) {
+      @include flex-row-spaceBetween;
+
+      .description {
+        width: 40%;
+      }
+      .photo__container {
+        width: 60%;
+      }
+    }
+  }
   &__landing {
     @include flex-col-spaceEvenly;
     font-size: 1.8em;
     font-weight: 600;
     align-items: center;
-    button {
-      width: 200px;
-      height: 50px;
-    }
+    height: calc(100vh - 100px);
+
     &__info {
-      @include flex-row-spaceEvenly;
+      z-index: 1;
+      padding-left: 10px;
+      .submit {
+        margin-top: 100px;
+      }
+      button {
+        width: 200px;
+        height: 50px;
+      }
+      @include flex-col-spaceEvenly;
+      h3 {
+        @include heading-3;
+        font-weight: bolder;
+        margin-bottom: 40px;
+      }
+      span {
+        font-size: 0.6em;
+        font-weight: 500;
+      }
+    }
+
+    .splash {
+      position: absolute;
+      top: 100px;
+      opacity: 0.5;
+      .hero {
+        background-color: $color-teal-light;
+        width: 100vw;
+        height: calc(100vh - 100px);
+      }
+    }
+
+    @include breakpoint(phablet) {
+      min-height: 50vh;
     }
   }
 }
