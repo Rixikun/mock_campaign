@@ -2,6 +2,7 @@ import React from "react";
 import { UseInput } from "../hooks";
 
 import Navigation from "./Navigation";
+import SocialMedia from "./SocialMedia";
 
 const Footer = () => {
   const [email, bindEmail, resetEmail] = UseInput("");
@@ -19,20 +20,7 @@ const Footer = () => {
             <span>Email: candidate@email.com</span>
             <span>Phone: 1 234-456-7890</span>
           </div>
-          <div className="social__container">
-            <span>Follow us on</span>
-            <div className="social__container__icons">
-              <a href="#">
-                <i className="fa fa-facebook"></i>
-              </a>
-              <a href="#">
-                <i className="fa fa-twitter"></i>
-              </a>
-              <a href="#">
-                <i className="fa fa-instagram"></i>
-              </a>
-            </div>
-          </div>
+          <SocialMedia />
         </div>
         <div className="footer__mid">
           <span>Subscribe to our Newsletter:</span>

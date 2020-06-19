@@ -1,0 +1,17 @@
+.social__container {
+  @include flex-col-spaceEvenly;
+  span {
+    margin: 10px 0;
+  }
+  &__icons {
+    @include flex-row-spaceBetween;
+    margin: 10px 0;
+    max-width: 30%;
+    a {
+      color: inherit;
+    }
+    i {
+      transform: scale(2);
+    }
+  }
+}
