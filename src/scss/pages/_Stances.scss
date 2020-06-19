@@ -1,12 +1,65 @@
 @import "../abstracts/mixins";
 
 .stances {
+  &__container {
+    width: 80vw;
+    max-width: 100vw;
+    margin: auto;
+  }
+
   .photo {
     margin-bottom: 20px;
+  }
+  .photo__container {
+    .photo {
+      max-width: calc(16 * 25px);
+      max-height: calc(9 * 25px);
+    }
   }
 
   h3 {
     @include heading-3;
     text-align: center;
+  }
+
+  .grid__container {
+    // breakpoint: larger than mobile
+
+    @include breakpoint(laptop) {
+      display: grid;
+      grid-template-columns: 0.5fr 0.5fr;
+      grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr;
+      grid-template-areas:
+        "section1 section2"
+        "section3 section4"
+        "section5 section6"
+        "section7 section8";
+      grid-gap: 50px;
+    }
+  }
+
+  .section1 {
+    grid-area: section1;
+  }
+  .section2 {
+    grid-area: section2;
+  }
+  .section3 {
+    grid-area: section3;
+  }
+  .section4 {
+    grid-area: section4;
+  }
+  .section5 {
+    grid-area: section5;
+  }
+  .section6 {
+    grid-area: section6;
+  }
+  .section7 {
+    grid-area: section7;
+  }
+  .section8 {
+    grid-area: section8;
   }
 }
