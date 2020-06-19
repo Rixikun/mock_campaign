@@ -5,7 +5,7 @@
   background-color: $color-teal;
   align-items: baseline;
   height: 100px;
-
+  z-index: 2;
   &__left {
     text-align: center;
     margin: auto;

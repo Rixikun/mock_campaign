@@ -3,8 +3,8 @@
   @include flex-col-spaceEvenly;
   align-items: center;
   background: $color-sky-lighter;
-  height: 400px;
-  width: 80vw;
+  height: calc(5 * 100px);
+  width: calc(4 * 100px);
   margin: auto;
 }
 // icon
