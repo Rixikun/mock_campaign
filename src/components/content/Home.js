@@ -14,7 +14,7 @@ const Home = () => {
         </div>
         <div className="home__landing__info">
           <h3>Candidate A for your party!</h3>
-          <span>Representing District-1 , District-2 , Disrict-3</span>
+          <span>Representing District-1 , District-2 , District-3</span>
           <div className="submit">
             <button className="btn btn-primary">Volunteer here</button>
           </div>
