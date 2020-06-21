@@ -11,7 +11,15 @@ const Home = () => {
     <div className="home">
       <div className="home__landing">
         <div className="parallax splash">
-          <Parallax bgImage={nyc} strength={800}>
+          <Parallax
+            bgImage={nyc}
+            strength={800}
+            bgImageStyle={{
+              width: "100%",
+              height: "100vh",
+              top: "50vh",
+            }}
+          >
             <div className="parallax__splash">
               <Parallax
                 bgImage={cloud1}
@@ -119,8 +127,19 @@ const Home = () => {
           </div>
         </div>
         <div className="section__toVolunteer">
-          <div className="photo__container">
-            <div className="photo photo5">(dazzling community photo here)</div>
+          <div className="parallax volunteer">
+            <Parallax
+              bgImage={nyc}
+              strength={300}
+              bgImageStyle={{
+                height: "100vh",
+                width: "100vw",
+              }}
+            >
+              <div style={{ height: "100vh" }}>
+                <div className="center__text">GET INVOLVED</div>
+              </div>
+            </Parallax>
           </div>
         </div>
         <div className="home__press">
