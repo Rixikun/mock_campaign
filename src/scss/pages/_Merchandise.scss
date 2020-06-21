@@ -2,7 +2,7 @@
 
 .merchandise {
   @include flex-col-spaceEvenly;
-  height: calc(100vh - 300px);
+  min-height: calc(100vh - 400px);
 
   &__container {
     @include flex-col-spaceEvenly;

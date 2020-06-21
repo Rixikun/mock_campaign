@@ -2,7 +2,7 @@
 
 .volunteer {
   @include flex-col-spaceEvenly;
-  min-height: calc(100vh - 300px);
+  min-height: calc(100vh - 400px);
 
   &__form {
     width: 80vw;
