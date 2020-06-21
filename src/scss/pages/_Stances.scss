@@ -16,7 +16,7 @@
   .section {
     .photo__container {
       display: block;
-      width: 100vw;
+      width: auto;
       transform: translateX(calc(-10vw - 30px));
       .photo3 {
         width: 100vw;
@@ -42,6 +42,16 @@
         "section5 section6"
         "section7 section8";
       grid-gap: 50px;
+
+      .section {
+        .photo__container {
+          width: auto;
+          transform: translateX(0);
+          .photo3 {
+            width: 100vw;
+          }
+        }
+      }
     }
   }
 
