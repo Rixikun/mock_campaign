@@ -43,6 +43,12 @@
     margin: 0;
     padding: 20px 0 0 20px;
 
+    li {
+      margin: 20px 10px;
+      list-style: none;
+      font-size: 1.2em;
+    }
+
     // breakpoint: larger than mobile
 
     @include breakpoint(phablet) {
@@ -52,11 +58,11 @@
       background-color: transparent;
       height: auto;
       padding: 0;
-    }
 
-    li {
-      margin: 5px 10px;
-      list-style: none;
+      li {
+        margin: 5px 10px;
+        font-size: 1.1em;
+      }
     }
   }
 
