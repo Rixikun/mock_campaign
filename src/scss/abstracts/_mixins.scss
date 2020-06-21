@@ -21,6 +21,10 @@
     @media (max-width: 37.5em) {
       @content;
     }
+  } @else if $point == handheld {
+    @media (max-width: 28.125em) {
+      @content;
+    }
   }
 }
 

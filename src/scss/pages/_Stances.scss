@@ -1,6 +1,10 @@
 @import "../abstracts/mixins";
 
 .stances {
+  h3 {
+    @include heading-3;
+    text-align: center;
+  }
   &__container {
     width: 80vw;
     max-width: 100vw;
@@ -13,26 +17,26 @@
     max-height: calc(9 * 25px);
   }
 
-  .section {
-    .photo__container {
-      display: block;
-      width: auto;
-      transform: translateX(calc(-10vw - 30px));
-      .photo3 {
-        width: 100vw;
+  @include breakpoint(handheld) {
+    .section {
+      .photo__container {
+        display: block;
+        width: auto;
+        .photo3 {
+          transform: translateX(calc(-10vw - 10px));
+          width: 90vw;
+        }
       }
     }
   }
 
-  h3 {
-    @include heading-3;
-    text-align: center;
-  }
+  // breakpoint: > laptop
+  @include breakpoint(laptop) {
+    &__container {
+      width: auto;
+    }
 
-  .grid__container {
-    // breakpoint: larger than mobile
-
-    @include breakpoint(laptop) {
+    .grid__container {
       display: grid;
       grid-template-columns: 0.5fr 0.5fr;
       grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr;
@@ -42,16 +46,12 @@
         "section5 section6"
         "section7 section8";
       grid-gap: 50px;
+    }
+  }
 
-      .section {
-        .photo__container {
-          width: auto;
-          transform: translateX(0);
-          .photo3 {
-            width: 100vw;
-          }
-        }
-      }
+  @include breakpoint(desktop) {
+    &__container {
+      width: 80vw;
     }
   }
 
