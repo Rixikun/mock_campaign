@@ -43,7 +43,9 @@ const Navigation = (props) => {
 
     return (
       <>
-        <a className="fa fa-chevron-down" onClick={(e) => toggle(e)}></a>
+        <div className="dropdown__container" onClick={(e) => toggle(e)}>
+          <a className="fa fa-chevron-down"></a>
+        </div>
         {result}
       </>
     );
