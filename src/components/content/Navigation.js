@@ -37,11 +37,7 @@ const Navigation = (props) => {
     const result = display ? (
       <>
         <ul className="navigation__pages">{pages}</ul>
-        <div className="navigation__close">
-          <div className="navigation__close__container">
-            <a className="fa fa-times" onClick={(e) => toggle(e)}></a>
-          </div>
-        </div>
+        <div className="navigation__close" onClick={(e) => toggle(e)}></div>
       </>
     ) : null;
 
