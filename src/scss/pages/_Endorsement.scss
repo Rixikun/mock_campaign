@@ -26,7 +26,6 @@
       max-width: 40vw;
       justify-content: end;
       flex-direction: column;
-      // breakpoint: larger than mobile
 
       .photo2 {
         text-align: center;
@@ -44,6 +43,7 @@
           color: white;
         }
       }
+      // breakpoint: larger than mobile
       @include breakpoint(phablet) {
         max-width: 30vw;
       }
