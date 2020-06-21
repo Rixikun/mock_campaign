@@ -1,16 +1,42 @@
 import React from "react";
 import SocialMedia from "../content/SocialMedia";
+import { Parallax } from "react-parallax";
+
+const nyc = require("../../assets/images/nyc_sky.jpg");
+const cloud1 = require("../../assets/images/cloud_01.png");
+const cloud2 = require("../../assets/images/cloud_02.png");
 
 const Home = () => {
   return (
     <div className="home">
       <div className="home__landing">
-        <div className="photo__container splash">
-          <div className="photo hero">
-            <br />
-            <br />
-            (Brilliant profile shot)
-          </div>
+        <div className="parallax splash">
+          <Parallax bgImage={nyc} strength={800}>
+            <div className="parallax__splash">
+              <Parallax
+                bgImage={cloud1}
+                renderLayer={(percentage) => (
+                  <div
+                    className="testimg"
+                    style={{
+                      position: "absolute",
+                      width: "100px",
+                      height: "100px",
+                      borderRadius: "50%",
+                      opacity: `${percentage}`,
+                      left: "50%",
+                      top: "50%",
+                      transform: `translate(-50%, -50%) scale(${
+                        percentage * 5
+                      })`,
+                    }}
+                  ></div>
+                )}
+              >
+                <div style={{ height: "100vh" }}></div>
+              </Parallax>
+            </div>
+          </Parallax>
         </div>
         <div className="home__landing__info">
           <h3>Candidate A for your party!</h3>

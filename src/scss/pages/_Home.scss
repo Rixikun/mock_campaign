@@ -135,15 +135,30 @@
       position: absolute;
       top: 100px;
       opacity: 0.5;
-      .hero {
-        background-color: $color-teal-light;
-        width: calc(100vw - 20px);
-        height: calc(100vh - 100px);
+      width: calc(100vw - 20px);
+      height: calc(100vh - 100px);
+
+      .parallax__splash {
+        height: calc(100vh - 200px);
       }
     }
 
     @include breakpoint(phablet) {
       min-height: 50vh;
     }
+  }
+}
+
+.testimg {
+  background-image: url("../../assets/images/egg.png");
+  background-size: cover;
+}
+.cloud {
+  height: 100%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  img {
+    max-width: 300px;
+    max-height: 300px;
   }
 }

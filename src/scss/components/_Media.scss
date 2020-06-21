@@ -27,3 +27,16 @@
   height: 200px;
   width: 320px;
 }
+
+.parallax {
+  width: 100%;
+  height: 100%;
+  .center__text {
+    background: $color-sky-lighter;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+  }
+}
