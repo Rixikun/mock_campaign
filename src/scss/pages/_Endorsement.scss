@@ -25,7 +25,7 @@
       width: 100%;
       max-width: 40vw;
       justify-content: end;
-
+      flex-direction: column;
       // breakpoint: larger than mobile
 
       .photo2 {
@@ -34,7 +34,8 @@
         margin-right: 20%;
       }
       .dropdown__container {
-        text-align: center;
+        text-align: end;
+        margin-right: calc(10vw + 25px);
 
         height: calc(100% - 120px);
         i {
