@@ -14,6 +14,9 @@ const SocialMedia = () => {
         <a href="#">
           <i className="fa fa-instagram"></i>
         </a>
+        <a href="#">
+          <i className="fa fa-envelope-o"></i>
+        </a>
       </div>
     </div>
   );

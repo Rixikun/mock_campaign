@@ -17,7 +17,7 @@ const Home = () => {
             bgImageStyle={{
               width: "100%",
               height: "100vh",
-              top: "50vh",
+              top: "30vh",
             }}
           >
             <div className="parallax__splash">
