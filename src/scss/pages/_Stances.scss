@@ -9,11 +9,18 @@
 
   .photo {
     margin-bottom: 20px;
+    max-width: calc(16 * 25px);
+    max-height: calc(9 * 25px);
   }
-  .photo__container {
-    .photo {
-      max-width: calc(16 * 25px);
-      max-height: calc(9 * 25px);
+
+  .section {
+    .photo__container {
+      display: block;
+      width: 100vw;
+      transform: translateX(calc(-10vw - 30px));
+      .photo3 {
+        width: 100vw;
+      }
     }
   }
 

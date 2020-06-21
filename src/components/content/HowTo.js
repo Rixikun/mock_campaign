@@ -6,7 +6,9 @@ const HowTo = () => {
       <div className="title">
         <h2>How To Vote</h2>
       </div>
-      <div className="photo photo5">(wide shot)</div>
+      <div className="photo__container">
+        <div className="photo photo5">(wide shot)</div>
+      </div>
 
       <div className="description">
         <h4>Make sure to vote by (date_here) !</h4>
@@ -30,7 +32,9 @@ const HowTo = () => {
               elementum ac, egestas vel lorem. Sed tempor scelerisque lacus.
               Mauris pretium a est et ornare.
             </p>
-            <div className="photo photo3">(accompanying img)</div>
+            <div className="photo__container">
+              <div className="photo photo3">(accompanying img)</div>
+            </div>
           </div>
           <div className="item2">
             <p>
@@ -45,7 +49,9 @@ const HowTo = () => {
               nisi tempor sollicitudin. Proin quis elit quis tortor congue
               sodales.
             </p>
-            <div className="photo photo3">(google map)</div>
+            <div className="photo__container">
+              <div className="photo photo3">(google map)</div>
+            </div>
           </div>
         </div>
       </div>

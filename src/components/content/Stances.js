@@ -6,7 +6,9 @@ const Stances = () => {
       <div className="title">
         <h2> Stances</h2>
       </div>
-      <div className="photo"></div>
+      <div className="photo__container">
+        <div className="photo"></div>
+      </div>
       <div className="stances__container">
         <div className="grid__container">
           <div className="section section1">

@@ -6,6 +6,7 @@
   &__container {
     @include flex-col-spaceEvenly;
     margin: 20px auto;
+    width: 90vw;
     h5 {
       text-align: center;
     }
@@ -22,6 +23,10 @@
         p {
           max-width: 50%;
           margin: 10px 10px 40px 20px;
+        }
+
+        .photo__container {
+          max-width: 40%;
         }
       }
     }

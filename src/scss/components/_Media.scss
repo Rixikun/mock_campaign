@@ -1,3 +1,7 @@
+.photo__container {
+  @include flex-row-spaceBetween;
+  margin: 10px;
+}
 //default: portrait
 .photo {
   @include flex-col-spaceEvenly;
