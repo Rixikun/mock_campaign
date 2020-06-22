@@ -15,7 +15,7 @@ const Volunteer = () => {
 
   useEffect(() => {
     getUsers();
-  }, []);
+  }, [users]);
 
   const userNames = users.map((e) => (
     <li>
