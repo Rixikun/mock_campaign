@@ -4,10 +4,6 @@
   @include flex-col-spaceEvenly;
   min-height: calc(100vh - 400px);
 
-  li {
-    list-style: none;
-  }
-
   &__form {
     width: 80vw;
     margin: auto;
@@ -33,9 +29,14 @@
   &__list {
     text-align: center;
     padding: 20px 0 10px;
-    background: $color-ink-lightest;
+    background: linear-gradient($color-sky-dark, $color-ink-lighter);
     ul {
       @include flex-row-spaceEvenly;
+
+      li {
+        list-style: none;
+        text-transform: capitalize;
+      }
     }
   }
 }

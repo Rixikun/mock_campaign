@@ -15,7 +15,7 @@ const VolunteerForm = () => {
     resetEmail();
     resetPhoneNumber();
 
-    await axios.post("/api/users", {
+    await axios.post("https://mock-campaign-server.herokuapp.com/api/users/", {
       firstName,
       lastName,
       email,
