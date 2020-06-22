@@ -6,7 +6,7 @@ import VolunteerForm from "./VolunteerForm";
 const Volunteer = () => {
   const [users, setUsers] = useState([]);
 
-  const url = "http://localhost:8080/api/users";
+  const url = "https://mock-campaign-server.herokuapp.com/api/users/";
 
   const getUsers = async () => {
     const { data } = await axios.get(url);
