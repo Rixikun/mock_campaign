@@ -10,15 +10,18 @@ const Volunteer = () => {
 
   const getUsers = async () => {
     const { data } = await axios.get(url);
-    const allUsers = data;
-    console.log("users: ", allUsers);
+    setUsers(data);
   };
 
   useEffect(() => {
     getUsers();
   }, []);
 
-  console.log(users);
+  const userNames = users.map((e) => (
+    <li>
+      {e.firstName} {e.lastName[0]}.
+    </li>
+  ));
 
   return (
     <div className="volunteer">
@@ -30,6 +33,10 @@ const Volunteer = () => {
         form to join our team :)
       </div>
       <VolunteerForm />
+      <div className="volunteer__list">
+        <h5>Friends already signed up: </h5>
+        <ul>{userNames}</ul>
+      </div>
     </div>
   );
 };
