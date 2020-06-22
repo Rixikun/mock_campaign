@@ -1,5 +1,6 @@
 import React from "react";
 import { UseInput } from "../hooks";
+import axios from "axios";
 
 const VolunteerForm = () => {
   const [firstName, bindFirstName, resetFirstName] = UseInput("");
@@ -7,12 +8,20 @@ const VolunteerForm = () => {
   const [email, bindEmail, resetEmail] = UseInput("");
   const [phoneNumber, bindPhoneNumber, resetPhoneNumber] = UseInput("");
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     resetFirstName();
     resetLastName();
     resetEmail();
     resetPhoneNumber();
+
+    await axios.post("/api/users", {
+      firstName,
+      lastName,
+      email,
+      phone: phoneNumber,
+    });
+
     alert(`Thank you ${firstName}`);
   };
   return (
