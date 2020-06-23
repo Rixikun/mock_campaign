@@ -12,6 +12,11 @@
     }
     i {
       transform: scale(2);
+
+      &:hover {
+        color: $color-teal;
+        transform: scale(2.2);
+      }
     }
   }
 }
