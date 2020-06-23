@@ -1,0 +1,46 @@
+@import "scss/abstracts/mixins";
+
+.module__container {
+  position: fixed;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  top: 50%;
+  left: 50%;
+
+  .moduleWarning {
+    @include flex-col-spaceEvenly;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 20px;
+    height: 40vw;
+    width: 80vw;
+    min-height: 100px;
+    min-width: 200px;
+    max-height: 300px;
+    max-width: 600px;
+    opacity: 0.9;
+    box-shadow: 1px 1px 5px $color-sky, -1px -1px 5px $color-sky !important;
+
+    span {
+      width: 90%;
+      font-weight: bolder;
+      font-size: 1.2em;
+      @include breakpoint(phablet) {
+        font-size: 1.5em;
+      }
+    }
+  }
+}
+
+.module__close {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  background: $color-ink;
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+}
