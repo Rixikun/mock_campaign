@@ -50,7 +50,12 @@ const Home = () => {
           <h3>Egg for President! 2020!</h3>
           <span>Representing an eggcellent nation!</span>
           <div className="submit">
-            <button className="btn btn-primary">Volunteer here</button>
+            <button
+              className="btn btn-primary"
+              aria-label="button volunteer here"
+            >
+              Volunteer here
+            </button>
           </div>
         </div>
       </div>
