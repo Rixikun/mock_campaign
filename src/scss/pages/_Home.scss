@@ -49,17 +49,34 @@
   }
   .section__toVolunteer {
     @include flex-col-spaceEvenly;
-    .volunteer {
-      height: 100vh;
-      width: 100vw;
-      transform: translateX(-10vw);
+    font-size: 1.2em;
+    align-items: center;
+    height: calc(100vh - 100px);
+    margin-bottom: 100px;
 
+    .featureImg {
+      position: absolute;
+      opacity: 0.5;
+      width: 100vw;
+      height: calc(100vh - 100px);
+      width: calc(100vw - 15px);
+
+      @include breakpoint(handheld) {
+        width: 100vw;
+      }
+      @include breakpoint(phablet) {
+        width: calc(100vw - 15px);
+      }
       .center__text {
-        // transform: translateY(-50vh);
-        // top: -20vh;
+        transform: translate(0, 0);
         left: auto;
         right: 0;
+        margin-right: 10px;
       }
+    }
+
+    @include breakpoint(phablet) {
+      min-height: 50vh;
     }
   }
 
@@ -126,12 +143,13 @@
     align-items: center;
     height: calc(100vh - 100px);
     margin-bottom: 100px;
-
+    justify-content: flex-end;
     &__info {
       z-index: 1;
       padding-left: 10px;
+      margin-bottom: 50px;
       .submit {
-        margin-top: 100px;
+        margin-top: 50px;
       }
       button {
         width: 200px;
@@ -141,31 +159,61 @@
       h3 {
         @include heading-3;
         font-weight: bolder;
-        margin-bottom: 40px;
+        font-size: 1.3em;
+        margin-bottom: 20px;
       }
       span {
         font-size: 0.6em;
         font-weight: 500;
       }
+      @include breakpoint(phablet) {
+        margin-bottom: 100px;
+        align-self: flex-start;
+        margin-left: 10vw;
+      }
     }
 
-    .splash {
+    .hero {
       position: absolute;
       top: 100px;
       opacity: 0.5;
-      width: calc(100vw);
+      width: calc(100vw - 15px);
       height: calc(100vh - 100px);
-    }
 
-    @include breakpoint(phablet) {
-      min-height: 50vh;
+      .react-parallax-bgimage {
+        top: 60vh;
+      }
+      @include breakpoint(handheld) {
+        width: 100vw;
+      }
+      @include breakpoint(phablet) {
+        width: calc(100vw - 15px);
+      }
+      .parallax__cloud {
+        .react-parallax-bgimage {
+          top: -15vh;
+        }
+      }
+
+      .react-parallax-bgimage {
+        top: 40vh;
+      }
     }
   }
 }
 
-.testimg {
+.heroIcon {
   background-image: url("../../assets/images/egg.png");
   background-size: cover;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  left: 50%;
+  top: 30%;
+  @include breakpoint(phablet) {
+    top: 35%;
+  }
 }
 .cloud {
   height: 100%;

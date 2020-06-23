@@ -10,30 +10,23 @@ const Home = () => {
   return (
     <div className="home">
       <div className="home__landing">
-        <div className="parallax splash">
+        <div className="parallax hero">
           <Parallax
             bgImage={nyc}
             strength={800}
             bgImageStyle={{
-              width: "100%",
+              width: "calc(100vw)",
               height: "100vh",
-              top: "30vh",
             }}
           >
-            <div className="parallax__splash">
+            <div className="parallax__cloud">
               <Parallax
                 bgImage={cloud1}
                 renderLayer={(percentage) => (
                   <div
-                    className="testimg"
+                    className="heroIcon"
                     style={{
-                      position: "absolute",
-                      width: "100px",
-                      height: "100px",
-                      borderRadius: "50%",
-                      opacity: `${percentage}`,
-                      left: "50%",
-                      top: "50%",
+                      opacity: `${percentage * 1.6}`,
                       transform: `translate(-50%, -50%) scale(${
                         percentage * 5
                       })`,
@@ -50,10 +43,7 @@ const Home = () => {
           <h3>Egg for President! 2020!</h3>
           <span>Representing an eggcellent nation!</span>
           <div className="submit">
-            <button
-              className="btn btn-primary"
-              aria-label="Volunteer here"
-            >
+            <button className="btn btn-primary" aria-label="Volunteer here">
               Volunteer here
             </button>
           </div>
@@ -133,13 +123,13 @@ const Home = () => {
           </div>
         </div>
         <div className="section__toVolunteer">
-          <div className="parallax volunteer">
+          <div className="parallax featureImg">
             <Parallax
               bgImage={nyc}
               strength={300}
               bgImageStyle={{
                 height: "100vh",
-                width: "100vw",
+                width: "calc(100vw)",
               }}
             >
               <div style={{ height: "100vh" }}>
