@@ -2,9 +2,16 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import { buySticker } from "../../redux/index";
+import ModuleWarning from "../ui/ModuleWarning";
 
 const StickerContainer = (props) => {
   const [num, setNum] = useState(1);
+  const [toggle, setToggle] = useState(false);
+  const [msg, setMsg] = useState("");
+
+  const msg1 = `Please do not enter any higher`;
+  const msg2 = `Desired quantity is too high, please select a value within ${props.numOfStickers}`;
+
   return (
     <div className="stickers__container">
       <div className="field">
@@ -16,9 +23,12 @@ const StickerContainer = (props) => {
           type="number"
           value={num}
           onChange={(e) => {
-            e.target.value > 1000000
-              ? alert(`Please do not enter any higher`)
-              : setNum(e.target.value);
+            if (e.target.value > 1000) {
+              setToggle(true);
+              setMsg(msg1);
+            } else {
+              setNum(e.target.value);
+            }
           }}
         ></input>
       </div>
@@ -29,9 +39,8 @@ const StickerContainer = (props) => {
             num < props.numOfStickers
               ? () => props.buySticker(num)
               : () => {
-                  alert(
-                    `Desired quantity is too high, please select a value within ${props.numOfStickers}`
-                  );
+                  setToggle(true);
+                  setMsg(msg2);
                   setNum(1);
                 }
           }
@@ -39,6 +48,12 @@ const StickerContainer = (props) => {
           Buy {num} Stickers
         </button>
       </div>
+      {toggle ? (
+        <>
+          <ModuleWarning msg={msg} />
+          <div className="module__close" onClick={() => setToggle(false)}></div>
+        </>
+      ) : null}
     </div>
   );
 };
