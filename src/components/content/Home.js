@@ -52,7 +52,7 @@ const Home = () => {
           <div className="submit">
             <button
               className="btn btn-primary"
-              aria-label="button volunteer here"
+              aria-label="Volunteer here"
             >
               Volunteer here
             </button>

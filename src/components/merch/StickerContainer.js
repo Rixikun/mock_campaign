@@ -35,6 +35,7 @@ const StickerContainer = (props) => {
       <div className="submit">
         <button
           className="btn btn-primary"
+          aria-label={`Buy ${num} stickers`}
           onClick={
             num < props.numOfStickers
               ? () => props.buySticker(num)

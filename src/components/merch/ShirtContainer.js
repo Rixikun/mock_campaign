@@ -35,6 +35,7 @@ const ShirtContainer = (props) => {
       <div className="submit">
         <button
           className="btn btn-primary"
+          aria-label={`Buy ${num} shirts`}
           onClick={
             num < props.numOfShirts
               ? () => props.buyShirt(num)

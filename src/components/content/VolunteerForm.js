@@ -65,7 +65,7 @@ const VolunteerForm = () => {
           ></input>
         </div>
         <div className="submit">
-          <button className="btn btn-primary">Submit</button>
+          <button className="btn btn-primary" aria-label="Submit volunteer form">Submit</button>
         </div>
       </form>
     </div>

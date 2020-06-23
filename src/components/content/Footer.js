@@ -33,7 +33,7 @@ const Footer = () => {
               ></input>
             </div>
             <div className="submit">
-              <button className="btn btn-primary">Submit</button>
+              <button className="btn btn-primary" aria-label="Submit email">Submit</button>
             </div>
           </form>
         </div>
