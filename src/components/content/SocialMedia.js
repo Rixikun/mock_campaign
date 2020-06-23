@@ -5,13 +5,13 @@ const SocialMedia = () => {
     <div className="social__container">
       <span>Follow us on</span>
       <div className="social__container__icons">
-        <a href="#">
+        <a href="#" aria-label="facebook">
           <i className="fa fa-facebook"></i>
         </a>
-        <a href="#">
+        <a href="#" aria-label="twitter">
           <i className="fa fa-twitter"></i>
         </a>
-        <a href="#">
+        <a href="#" aria-label="instagram">
           <i className="fa fa-instagram"></i>
         </a>
         <a href="#" aria-label="email">
