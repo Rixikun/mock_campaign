@@ -65,7 +65,7 @@
         width: 100vw;
       }
       @include breakpoint(phablet) {
-        width: calc(100vw - 15px);
+        width: calc(100vw - 16px);
       }
       .center__text {
         transform: translate(0, 0);
@@ -187,7 +187,7 @@
         width: 100vw;
       }
       @include breakpoint(phablet) {
-        width: calc(100vw - 15px);
+        width: calc(100vw - 16px);
       }
       .parallax__cloud {
         .react-parallax-bgimage {
