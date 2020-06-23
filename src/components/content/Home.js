@@ -47,8 +47,8 @@ const Home = () => {
           </Parallax>
         </div>
         <div className="home__landing__info">
-          <h3>Candidate A for your party!</h3>
-          <span>Representing District-1 , District-2 , District-3</span>
+          <h3>Egg for President! 2020!</h3>
+          <span>Representing an eggcellent nation!</span>
           <div className="submit">
             <button className="btn btn-primary">Volunteer here</button>
           </div>
@@ -57,12 +57,13 @@ const Home = () => {
       <div className="home__container">
         <div className=" home__container__redirect">
           <div className="section__toAbout">
-            <h4>X, Y, Z</h4>
+            <h4>#egg2020</h4>
             <p>
-              Short summary Proin in ante non ipsum molestie efficitur. Donec ut
-              felis vestibulum, volutpat lorem id, ultrices ante.
+              This is a personal project to have fun building a stylish,
+              responsive webapp using react hooks, react-redux, SASS, express,
+              sequelize.
             </p>
-            <span>Join us to help our district</span>
+            <span>Thank you for visiting! - Lin X.</span>
           </div>
           <div className="section__toSocialMedia">
             <SocialMedia />

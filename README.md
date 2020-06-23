@@ -9,6 +9,8 @@ npm install the following:
 - node-sass
 - react
 - react-dom
+- react-media
+- react-parallax
 - react-redux
 - react-router-dom
 - react-scripts
