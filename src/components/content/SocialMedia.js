@@ -11,10 +11,10 @@ const SocialMedia = () => {
         <a href="#" aria-label="twitter">
           <i className="fa fa-twitter"></i>
         </a>
-        <a href="#" aria-label="instagram">
+        <a href="https://www.instagram.com/rixikun/" aria-label="instagram">
           <i className="fa fa-instagram"></i>
         </a>
-        <a href="#" aria-label="email">
+        <a href="mailto:linyianxia@gmail.com" aria-label="email">
           <i className="fa fa-envelope-o"></i>
         </a>
       </div>

@@ -67,17 +67,25 @@ const Home = () => {
         <div className="grid__container">
           <div className="section section1">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget
-              dui turpis. Nunc ante arcu, euismod eu condimentum condimentum,
-              eleifend in dui. Proin in ante non ipsum molestie efficitur. Donec
-              ut felis vestibulum, volutpat lorem id, ultrices ante. Proin eros
-              orci, hendrerit quis urna ut, maximus luctus nunc. Cras ut velit
-              risus. Ut tincidunt vel enim sed posuere. Nunc venenatis ut nisi
-              sed fermentum. Quisque non aliquam sem, id tristique sem.
-              Suspendisse at hendrerit ante. Ut ipsum sem, fringilla sed
-              elementum ac, egestas vel lorem. Sed tempor scelerisque lacus.
-              Mauris pretium a est et ornare.
+              My name is Lin Xia. I am a budding web developer. From art,
+              animation, and coffee I made the transition into web development
+              by attending a fullstack development bootcamp. After graduating I
+              volunteered to help teach the foundations of web development to
+              high schoolers in my city and worked as a frontend intern to a
+              fitness start-up. This helped me discover that I really enjoy web
+              development and would love to continue this path.
             </p>
+            <div className="social__container">
+              <div className="social__container__icons">
+                <a href="https://github.com/rixikun/">
+                  &ensp;
+                  <i className="fa fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/linyxia">
+                  <i className="fa fa-linkedin-square"></i>
+                </a>
+              </div>
+            </div>
           </div>
           <div className="section section2">
             <p>
