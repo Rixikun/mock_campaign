@@ -18,6 +18,7 @@
 @import "scss/pages/Merchandise";
 @import "scss/pages/Stances";
 @import "scss/pages/Volunteer";
+@import "scss/pages/SingleUser";
 //components
 @import "scss/components/Button";
 @import "scss/components/Footer";
@@ -27,6 +28,9 @@
 @import "scss/components/Navigation";
 @import "scss/components/SocialMedia";
 @import "scss/components/ModuleWarning";
+@import "scss/components/ModuleThanks";
+@import "scss/components/Loader";
+
 body {
   font-family: "Heebo", sans-serif;
 }

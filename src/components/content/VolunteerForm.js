@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { UseInput } from "../hooks";
 import axios from "axios";
+import ModuleThanks from "../ui/ModuleThanks";
 
 const VolunteerForm = () => {
   const [firstName, bindFirstName, resetFirstName] = UseInput("");
@@ -8,21 +9,24 @@ const VolunteerForm = () => {
   const [email, bindEmail, resetEmail] = UseInput("");
   const [phoneNumber, bindPhoneNumber, resetPhoneNumber] = UseInput("");
 
+  const [press, setPress] = useState(false);
+
   const submitHandler = async (e) => {
     e.preventDefault();
-    resetFirstName();
-    resetLastName();
-    resetEmail();
-    resetPhoneNumber();
-
+    setPress(true);
     await axios.post("https://mock-campaign-server.herokuapp.com/api/users/", {
       firstName,
       lastName,
       email,
       phone: phoneNumber,
     });
-
-    alert(`Thank you ${firstName}`);
+    setTimeout(() => {
+      setPress(false);
+      resetFirstName();
+      resetLastName();
+      resetEmail();
+      resetPhoneNumber();
+    }, 3000);
   };
   return (
     <div className="volunteer__form">
@@ -65,9 +69,25 @@ const VolunteerForm = () => {
           ></input>
         </div>
         <div className="submit">
-          <button className="btn btn-primary" aria-label="Submit volunteer form">Submit</button>
+          <button
+            className="btn btn-primary"
+            aria-label="Submit volunteer form"
+          >
+            Submit
+          </button>
         </div>
       </form>
+      {press ? (
+        <>
+          {" "}
+          <div className="loader-wrapper">
+            <span className="loader"></span>
+          </div>
+          <ModuleThanks msg={`Thank you ${firstName}`} />
+        </>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
