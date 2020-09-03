@@ -1,0 +1,29 @@
+@import "scss/abstracts/mixins";
+
+.SingleUser {
+  @include flex-col-spaceBetween;
+  min-height: 75vh;
+  height: 100%;
+
+  header {
+    text-align: center;
+    margin: 2rem 0;
+  }
+
+  main {
+    @include flex-col-spaceEvenly;
+    margin: 2rem 10%;
+    align-items: center;
+    height: 25vh;
+
+    button {
+      width: 300px;
+      opacity: 0.5;
+      margin-top: 2rem;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

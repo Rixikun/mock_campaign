@@ -47,6 +47,11 @@
   flex-direction: column;
   justify-content: space-evenly;
 }
+@mixin flex-col-spaceBetween {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 // headings
 
