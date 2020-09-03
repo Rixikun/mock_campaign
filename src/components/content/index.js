@@ -7,6 +7,7 @@ import Home from "./Home";
 import HowTo from "./HowTo";
 import Merchandise from "./Merchandise";
 import Navigation from "./Navigation";
+import SingleUser from "./SingleUser";
 import Stances from "./Stances";
 import Volunteer from "./Volunteer";
 import VolunteerForm from "./VolunteerForm";
@@ -21,6 +22,7 @@ export {
   HowTo,
   Merchandise,
   Navigation,
+  SingleUser,
   Stances,
   Volunteer,
   VolunteerForm,

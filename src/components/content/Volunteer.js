@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
 
 import VolunteerForm from "./VolunteerForm";
@@ -18,8 +19,15 @@ const Volunteer = () => {
   }, [users]);
 
   const userNames = users.map((e) => (
-    <li>
-      {e.firstName} {e.lastName[0]}.
+    <li key={e.id}>
+      <NavLink
+        to={{
+          pathname: "/Volunteer/user/" + e.id,
+          state: { name: e.firstName + " " + e.lastName },
+        }}
+      >
+        {e.firstName} {e.lastName[0]}.
+      </NavLink>
     </li>
   ));
 
@@ -34,6 +42,15 @@ const Volunteer = () => {
       </div>
       <VolunteerForm />
       <div className="volunteer__list">
+        {!users.length ? (
+          <div className="loader-wrapper">
+            <div className="spinner">
+              <span className="spinner-inner"></span>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
         <h5>Friends already signed up: </h5>
         <ul>{userNames}</ul>
       </div>
