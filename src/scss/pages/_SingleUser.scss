@@ -14,7 +14,11 @@
     @include flex-col-spaceEvenly;
     margin: 2rem 10%;
     align-items: center;
-    height: 25vh;
+    height: 50vh;
+
+    form {
+      @include flex-col-spaceEvenly;
+    }
 
     button {
       width: 300px;
