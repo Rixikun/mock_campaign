@@ -86,7 +86,7 @@ const SingleUser = (props) => {
             ""
           )}
           {updated ? (
-            <p>
+            <p className="updated">
               <strong>Updated!</strong>
             </p>
           ) : (
