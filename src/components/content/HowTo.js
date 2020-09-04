@@ -1,6 +1,23 @@
 import React from "react";
+import ReactMapGL from "react-map-gl";
+
+let mapboxAPI;
+if (process.env.NODE_ENV === "development") {
+  mapboxAPI = process.env.MAPBOX_TOKEN_DEV;
+} else {
+  mapboxAPI = process.env.MAPBOX_TOKEN_PROD;
+}
 
 const HowTo = () => {
+  const mapStyle = {
+    viewport: {
+      width: "100%",
+      height: 400,
+      latitude: 40.753685,
+      longitude: -73.999161,
+      zoom: 11,
+    },
+  };
   return (
     <div className="howto">
       <div className="title">
@@ -49,8 +66,11 @@ const HowTo = () => {
               nisi tempor sollicitudin. Proin quis elit quis tortor congue
               sodales.
             </p>
-            <div className="photo__container">
-              <div className="photo photo3">(google map)</div>
+            <div className="map__container">
+              <ReactMapGL
+                {...mapStyle.viewport}
+                mapboxApiAccessToken={mapboxAPI}
+              />
             </div>
           </div>
         </div>
