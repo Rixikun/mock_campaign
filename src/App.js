@@ -17,7 +17,7 @@ function App() {
             <Route path="/About" component={C.AboutCandidate} />
             <Route path="/Stances" component={C.Stances} />
             <Route path="/Endorsement" component={C.Endorsement} />
-            <Route path="/Volunteer/User/:id" component={C.SingleUser} />
+            <Route path="/Volunteer/user/:id" component={C.SingleUser} />
             <Route path="/Volunteer" component={C.Volunteer} />
             <Route path="/Donate" component={C.Donate} />
             <Route path="/Merchandise" component={C.Merchandise} />
