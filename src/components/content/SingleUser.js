@@ -94,7 +94,10 @@ const SingleUser = (props) => {
           )}
           <button className="btn btn-primary">Update Email</button>
         </form>
-        <button className="btn btn-primary" onClick={() => setPress(!press)}>
+        <button
+          className="btn btn-primary btn-delete"
+          onClick={() => setPress(!press)}
+        >
           Actually, remove me from this list.
         </button>
         {press ? (

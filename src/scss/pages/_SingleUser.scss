@@ -22,12 +22,14 @@
 
     button {
       width: 300px;
-      opacity: 0.5;
       margin-top: 2rem;
 
       &:hover {
         opacity: 1;
       }
+    }
+    .btn-delete {
+      opacity: 0.5;
     }
   }
 }
