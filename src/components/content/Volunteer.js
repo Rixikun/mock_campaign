@@ -23,7 +23,7 @@ const Volunteer = () => {
       <NavLink
         to={{
           pathname: "/Volunteer/user/" + e.id,
-          state: { name: e.firstName + " " + e.lastName },
+          state: { name: e.firstName + " " + e.lastName, id: e.id },
         }}
       >
         {e.firstName} {e.lastName[0]}.
@@ -45,7 +45,7 @@ const Volunteer = () => {
         {!users.length ? (
           <div className="loader-wrapper">
             <div className="spinner">
-              <span className="spinner-inner"></span>
+              <div className="spinner-inner"></div>
             </div>
           </div>
         ) : (
