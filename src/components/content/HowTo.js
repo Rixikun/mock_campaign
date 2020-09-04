@@ -3,9 +3,7 @@ import ReactMapGL from "react-map-gl";
 
 let mapboxAPI;
 if (process.env.NODE_ENV === "development") {
-  mapboxAPI = process.env.MAPBOX_TOKEN_DEV;
-} else {
-  mapboxAPI = process.env.MAPBOX_TOKEN_PROD;
+  mapboxAPI = process.env.MAPBOX_TOKEN;
 }
 
 const HowTo = () => {
