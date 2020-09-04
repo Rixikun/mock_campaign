@@ -1,13 +1,6 @@
 import React from "react";
 import ReactMapGL from "react-map-gl";
 
-let mapboxAPI;
-if (process.env.NODE_ENV === "development") {
-  mapboxAPI = process.env.MAPBOX_TOKEN_DEV;
-} else {
-  mapboxAPI = process.env.MAPBOX_TOKEN_PROD;
-}
-
 const HowTo = () => {
   const mapStyle = {
     viewport: {
@@ -69,7 +62,7 @@ const HowTo = () => {
             <div className="map__container">
               <ReactMapGL
                 {...mapStyle.viewport}
-                mapboxApiAccessToken={mapboxAPI}
+                mapboxApiAccessToken={process.env.MAPBOX_TOKEN}
               />
             </div>
           </div>
