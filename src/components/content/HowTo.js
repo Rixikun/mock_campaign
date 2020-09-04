@@ -62,7 +62,7 @@ const HowTo = () => {
             <div className="map__container">
               <ReactMapGL
                 {...mapStyle.viewport}
-                mapboxApiAccessToken={process.env.MAPBOX_TOKEN}
+                mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
               />
             </div>
           </div>
