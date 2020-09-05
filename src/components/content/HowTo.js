@@ -1,16 +1,53 @@
-import React from "react";
-import ReactMapGL from "react-map-gl";
+import React, { useState, useEffect } from "react";
+import ReactMapGL, { Marker, Popup } from "react-map-gl";
+import * as nycData from "../../dummydata.json";
+import markerIcon from "../../assets/images/map-marker-alt-solid.svg";
+
+const nycLocations = nycData.default.locations;
+const locationNames = Object.keys(nycLocations);
 
 const HowTo = () => {
-  const mapStyle = {
-    viewport: {
-      width: "100%",
-      height: 400,
-      latitude: 40.753685,
-      longitude: -73.999161,
-      zoom: 11,
-    },
-  };
+  const [viewport, setViewport] = useState({
+    width: "100%",
+    height: "100%",
+    latitude: 40.753685,
+    longitude: -73.999161,
+    zoom: 11,
+  });
+
+  const [selected, setSelected] = useState(null);
+
+  useEffect(() => {
+    const listener = (e) => {
+      if (e.key === "Escape") {
+        setSelected(null);
+      }
+    };
+    window.addEventListener("keydown", listener);
+
+    return () => window.removeEventListener("keydown", listener);
+  }, []);
+
+  function markerHandler(e, pt) {
+    e.preventDefault();
+    setSelected(pt);
+  }
+  const testMarkers = locationNames.map((pt) => (
+    <Marker
+      key={pt}
+      latitude={nycLocations[pt]["latitude"]}
+      longitude={nycLocations[pt]["longitude"]}
+    >
+      <button
+        type="button"
+        className="marker"
+        onClick={(e) => markerHandler(e, pt)}
+      >
+        <img src={markerIcon} />
+      </button>
+    </Marker>
+  ));
+
   return (
     <div className="howto">
       <div className="title">
@@ -61,9 +98,29 @@ const HowTo = () => {
             </p>
             <div className="map__container">
               <ReactMapGL
-                {...mapStyle.viewport}
+                {...viewport}
+                mapStyle="mapbox://styles/linyxia/ckeoxvnnw127r19r84s35dwf7"
                 mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-              />
+                onViewportChange={(viewport) => {
+                  setViewport(viewport);
+                }}
+              >
+                {testMarkers}
+                {selected && (
+                  <Popup
+                    latitude={nycLocations[selected]["latitude"]}
+                    longitude={nycLocations[selected]["longitude"]}
+                    onClose={() => {
+                      setSelected(null);
+                    }}
+                  >
+                    <div>
+                      <h3>Poll: {selected}</h3>
+                      <p>Address here</p>
+                    </div>
+                  </Popup>
+                )}
+              </ReactMapGL>
             </div>
           </div>
         </div>
