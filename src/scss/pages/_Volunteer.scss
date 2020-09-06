@@ -34,6 +34,13 @@
       @include flex-row-spaceEvenly;
       flex-wrap: wrap;
       padding: 0 1rem;
+      max-height: 30vh;
+      overflow: auto;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
       li {
         list-style: none;
         text-transform: capitalize;

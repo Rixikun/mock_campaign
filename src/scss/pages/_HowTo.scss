@@ -3,6 +3,37 @@
 .howto {
   @include flex-col-spaceEvenly;
 
+  .map__container {
+    border: 3px solid $color-orange;
+    border-radius: 3px;
+    height: 400px;
+
+    .popup-details {
+      padding: 0.5rem;
+      h4 {
+        font-weight: bold;
+      }
+
+      p {
+        color: #555;
+        margin: 0;
+      }
+    }
+  }
+
+  .marker {
+    background-color: transparent;
+    filter: invert(0.5) sepia(1) hue-rotate(310deg) saturate(6);
+    height: 40px;
+    width: 40px;
+    border: none;
+  }
+  .user-marker {
+    filter: invert(0.25) sepia(1) hue-rotate(310deg) saturate(6);
+    height: 50px;
+    width: 50px;
+  }
+
   &__container {
     @include flex-col-spaceEvenly;
     margin: 20px auto;

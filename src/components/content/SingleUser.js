@@ -86,7 +86,7 @@ const SingleUser = (props) => {
             ""
           )}
           {updated ? (
-            <p>
+            <p className="updated">
               <strong>Updated!</strong>
             </p>
           ) : (
@@ -94,7 +94,10 @@ const SingleUser = (props) => {
           )}
           <button className="btn btn-primary">Update Email</button>
         </form>
-        <button className="btn btn-primary" onClick={() => setPress(!press)}>
+        <button
+          className="btn btn-primary btn-delete"
+          onClick={() => setPress(!press)}
+        >
           Actually, remove me from this list.
         </button>
         {press ? (

@@ -1,6 +1,61 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import ReactMapGL, { Marker, Popup } from "react-map-gl";
+import axios from "axios";
+
+import markerIcon from "../../assets/images/map-marker-alt-solid.svg";
 
 const HowTo = () => {
+  const [polls, setPolls] = useState([]);
+  const getPolls = async () => {
+    const { data } = await axios.get(
+      "https://data.cityofnewyork.us/resource/mifw-tguq.json"
+    );
+    setPolls(data.filter((pt) => pt.longitude));
+  };
+
+  const [viewport, setViewport] = useState({
+    width: "100%",
+    height: "100%",
+    latitude: 40.753685,
+    longitude: -73.999161,
+    zoom: 11,
+  });
+  const [userMarker, setUserMarker] = useState("");
+  const getUserLocation = () => {
+    navigator.geolocation.getCurrentPosition((pos) => {
+      setViewport({
+        ...viewport,
+        latitude: pos.coords.latitude,
+        longitude: pos.coords.longitude,
+        zoom: 14,
+      });
+      setUserMarker(
+        <Marker latitude={pos.coords.latitude} longitude={pos.coords.longitude}>
+          <button type="button" className="marker user-marker">
+            <img src={markerIcon} alt="map marker of user" />
+          </button>
+        </Marker>
+      );
+    });
+  };
+  const [selected, setSelected] = useState(null);
+  getUserLocation();
+  useEffect(() => {
+    getPolls();
+    const listener = (e) => {
+      if (e.key === "Escape") {
+        setSelected(null);
+      }
+    };
+    window.addEventListener("keydown", listener);
+
+    return () => window.removeEventListener("keydown", listener);
+  }, []);
+
+  function markerHandler(e, pt) {
+    e.preventDefault();
+    setSelected(pt);
+  }
   return (
     <div className="howto">
       <div className="title">
@@ -49,8 +104,55 @@ const HowTo = () => {
               nisi tempor sollicitudin. Proin quis elit quis tortor congue
               sodales.
             </p>
-            <div className="photo__container">
-              <div className="photo photo3">(google map)</div>
+
+            <div className="map__container">
+              <ReactMapGL
+                {...viewport}
+                mapStyle="mapbox://styles/linyxia/ckeoxvnnw127r19r84s35dwf7"
+                mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+                onViewportChange={(viewport) => {
+                  setViewport(viewport);
+                }}
+              >
+                {polls.length
+                  ? polls.map((pt, idx) => (
+                      <Marker
+                        key={idx}
+                        latitude={Number(pt.latitude)}
+                        longitude={Number(pt.longitude)}
+                      >
+                        <button
+                          type="button"
+                          className="marker"
+                          onClick={(e) => markerHandler(e, pt)}
+                        >
+                          <img src={markerIcon} alt="map marker" />
+                        </button>
+                      </Marker>
+                    ))
+                  : ""}
+                {userMarker}
+
+                {selected && (
+                  <Popup
+                    latitude={Number(selected.latitude)}
+                    longitude={Number(selected.longitude)}
+                    onClose={() => {
+                      setSelected(null);
+                    }}
+                  >
+                    <div className="popup-details">
+                      <h4>{selected.site_name}</h4>
+                      <p>
+                        {selected.voter_entrance}, {selected.zip_code},{" "}
+                        {selected.city}, {selected.borough}
+                        <br />
+                        Council District: {selected.council_district}
+                      </p>
+                    </div>
+                  </Popup>
+                )}
+              </ReactMapGL>
             </div>
           </div>
         </div>
