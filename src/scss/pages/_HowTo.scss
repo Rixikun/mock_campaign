@@ -16,6 +16,9 @@
     width: 40px;
     border: none;
   }
+  .user-marker {
+    filter: invert(0.25) sepia(1) hue-rotate(310deg) saturate(6);
+  }
 
   &__container {
     @include flex-col-spaceEvenly;

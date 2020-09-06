@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
-import * as nycData from "../../dummydata.json";
+import axios from "axios";
 import markerIcon from "../../assets/images/map-marker-alt-solid.svg";
 
-const nycLocations = nycData.default.locations;
-const locationNames = Object.keys(nycLocations);
-
 const HowTo = () => {
+  const [polls, setPolls] = useState([]);
+  const getPolls = async () => {
+    const { data } = await axios.get(
+      "https://data.cityofnewyork.us/resource/mifw-tguq.json"
+    );
+    setPolls(data.filter((pt) => pt.longitude));
+  };
+
   const [viewport, setViewport] = useState({
     width: "100%",
     height: "100%",
@@ -14,10 +19,29 @@ const HowTo = () => {
     longitude: -73.999161,
     zoom: 11,
   });
-
+  const [userMarker, setUserMarker] = useState("");
+  const getUserLocation = () => {
+    navigator.geolocation.getCurrentPosition((pos) => {
+      setViewport({
+        ...viewport,
+        latitude: pos.coords.latitude,
+        longitude: pos.coords.longitude,
+        zoom: 14,
+      });
+      setUserMarker(
+        <Marker latitude={pos.coords.latitude} longitude={pos.coords.longitude}>
+          <button type="button" className="marker user-marker">
+            <img src={markerIcon} />
+          </button>
+        </Marker>
+      );
+    });
+  };
   const [selected, setSelected] = useState(null);
-
   useEffect(() => {
+    getPolls();
+
+    getUserLocation();
     const listener = (e) => {
       if (e.key === "Escape") {
         setSelected(null);
@@ -32,22 +56,6 @@ const HowTo = () => {
     e.preventDefault();
     setSelected(pt);
   }
-  const testMarkers = locationNames.map((pt) => (
-    <Marker
-      key={pt}
-      latitude={nycLocations[pt]["latitude"]}
-      longitude={nycLocations[pt]["longitude"]}
-    >
-      <button
-        type="button"
-        className="marker"
-        onClick={(e) => markerHandler(e, pt)}
-      >
-        <img src={markerIcon} />
-      </button>
-    </Marker>
-  ));
-
   return (
     <div className="howto">
       <div className="title">
@@ -105,11 +113,26 @@ const HowTo = () => {
                   setViewport(viewport);
                 }}
               >
-                {testMarkers}
+                {polls.length &&
+                  polls.map((pt, idx) => (
+                    <Marker
+                      key={idx}
+                      latitude={Number(pt.latitude)}
+                      longitude={Number(pt.longitude)}
+                    >
+                      <button
+                        type="button"
+                        className="marker"
+                        onClick={(e) => markerHandler(e, pt)}
+                      >
+                        <img src={markerIcon} />
+                      </button>
+                    </Marker>
+                  ))}
                 {selected && (
                   <Popup
-                    latitude={nycLocations[selected]["latitude"]}
-                    longitude={nycLocations[selected]["longitude"]}
+                    latitude={polls[selected]["latitude"]}
+                    longitude={polls[selected]["longitude"]}
                     onClose={() => {
                       setSelected(null);
                     }}
