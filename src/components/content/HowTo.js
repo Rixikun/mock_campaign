@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import axios from "axios";
+
 import markerIcon from "../../assets/images/map-marker-alt-solid.svg";
 
 const HowTo = () => {
@@ -39,9 +40,8 @@ const HowTo = () => {
   };
   const [selected, setSelected] = useState(null);
   useEffect(() => {
-    getPolls();
-
     getUserLocation();
+    getPolls();
     const listener = (e) => {
       if (e.key === "Escape") {
         setSelected(null);
@@ -104,6 +104,7 @@ const HowTo = () => {
               nisi tempor sollicitudin. Proin quis elit quis tortor congue
               sodales.
             </p>
+
             <div className="map__container">
               <ReactMapGL
                 {...viewport}
@@ -113,33 +114,39 @@ const HowTo = () => {
                   setViewport(viewport);
                 }}
               >
-                {polls.length &&
-                  polls.map((pt, idx) => (
-                    <Marker
-                      key={idx}
-                      latitude={Number(pt.latitude)}
-                      longitude={Number(pt.longitude)}
-                    >
-                      <button
-                        type="button"
-                        className="marker"
-                        onClick={(e) => markerHandler(e, pt)}
+                {polls.length
+                  ? polls.map((pt, idx) => (
+                      <Marker
+                        key={idx}
+                        latitude={Number(pt.latitude)}
+                        longitude={Number(pt.longitude)}
                       >
-                        <img src={markerIcon} />
-                      </button>
-                    </Marker>
-                  ))}
+                        <button
+                          type="button"
+                          className="marker"
+                          onClick={(e) => markerHandler(e, pt)}
+                        >
+                          <img src={markerIcon} />
+                        </button>
+                      </Marker>
+                    ))
+                  : ""}
                 {selected && (
                   <Popup
-                    latitude={polls[selected]["latitude"]}
-                    longitude={polls[selected]["longitude"]}
+                    latitude={Number(selected.latitude)}
+                    longitude={Number(selected.longitude)}
                     onClose={() => {
                       setSelected(null);
                     }}
                   >
-                    <div>
-                      <h3>Poll: {selected}</h3>
-                      <p>Address here</p>
+                    <div className="popup-details">
+                      <h4>{selected.site_name}</h4>
+                      <p>
+                        {selected.voter_entrance}, {selected.zip_code},{" "}
+                        {selected.city}, {selected.borough}
+                        <br />
+                        Council District: {selected.council_district}
+                      </p>
                     </div>
                   </Popup>
                 )}

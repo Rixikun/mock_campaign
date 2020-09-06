@@ -7,6 +7,18 @@
     border: 3px solid $color-orange;
     border-radius: 3px;
     height: 400px;
+
+    .popup-details {
+      padding: 0.5rem;
+      h4 {
+        font-weight: bold;
+      }
+
+      p {
+        color: #555;
+        margin: 0;
+      }
+    }
   }
 
   .marker {
