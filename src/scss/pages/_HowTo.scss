@@ -30,6 +30,8 @@
   }
   .user-marker {
     filter: invert(0.25) sepia(1) hue-rotate(310deg) saturate(6);
+    height: 50px;
+    width: 50px;
   }
 
   &__container {

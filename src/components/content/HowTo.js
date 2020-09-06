@@ -32,15 +32,15 @@ const HowTo = () => {
       setUserMarker(
         <Marker latitude={pos.coords.latitude} longitude={pos.coords.longitude}>
           <button type="button" className="marker user-marker">
-            <img src={markerIcon} />
+            <img src={markerIcon} alt="map marker of user" />
           </button>
         </Marker>
       );
     });
   };
   const [selected, setSelected] = useState(null);
+  getUserLocation();
   useEffect(() => {
-    getUserLocation();
     getPolls();
     const listener = (e) => {
       if (e.key === "Escape") {
@@ -126,11 +126,13 @@ const HowTo = () => {
                           className="marker"
                           onClick={(e) => markerHandler(e, pt)}
                         >
-                          <img src={markerIcon} />
+                          <img src={markerIcon} alt="map marker" />
                         </button>
                       </Marker>
                     ))
                   : ""}
+                {userMarker}
+
                 {selected && (
                   <Popup
                     latitude={Number(selected.latitude)}
