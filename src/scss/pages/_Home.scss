@@ -56,7 +56,6 @@
 
     .featureImg {
       position: absolute;
-      opacity: 0.5;
       width: 100vw;
       height: calc(100vh - 100px);
       width: calc(100vw - 15px);
@@ -72,6 +71,24 @@
         left: auto;
         right: 0;
         margin-right: 10px;
+        background-color: $color-teal;
+
+        &:hover {
+          background-color: $color-teal-dark;
+          a {
+            color: $color-teal-light;
+          }
+        }
+        &:active,
+        &:focus {
+          a {
+            color: $color-teal-light;
+          }
+        }
+        a {
+          color: $color-teal-darker;
+          text-decoration: none;
+        }
       }
     }
 

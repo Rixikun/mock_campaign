@@ -144,7 +144,7 @@ const Home = () => {
             >
               <div style={{ height: "100vh" }}>
                 <button
-                  className="btn center__text"
+                  className="btn center__text btn-primary"
                   aria-label="Volunteer here"
                 >
                   <NavLink to="/Volunteer">GET INVOLVED</NavLink>
