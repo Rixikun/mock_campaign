@@ -6,11 +6,11 @@ import VolunteerForm from "./VolunteerForm";
 
 const Volunteer = () => {
   const [users, setUsers] = useState([]);
+  const [update, setUpdate] = useState(false);
 
   const url = "https://mock-campaign-server.herokuapp.com/api/users/";
 
   useEffect(() => {
-    let isMounted = true;
     const getUsers = async () => {
       try {
         const { data } = await axios.get(url);
@@ -19,9 +19,12 @@ const Volunteer = () => {
         console.log(err);
       }
     };
-    isMounted && getUsers();
-    return () => (isMounted = false);
-  }, [users]);
+    getUsers();
+  }, [update]);
+
+  function handleUpdate() {
+    setUpdate(!update);
+  }
 
   const userNames = users.map((e) => (
     <li key={e.id}>
@@ -45,7 +48,7 @@ const Volunteer = () => {
         Wow! So happy to receive your time and efforts! Please fill out this
         form to join our team :)
       </div>
-      <VolunteerForm />
+      <VolunteerForm handleUpdate={handleUpdate} />
       <div className="volunteer__list">
         {!users.length ? (
           <div className="loader-wrapper">
