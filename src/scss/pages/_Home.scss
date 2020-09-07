@@ -4,6 +4,25 @@
   @include flex-col-spaceEvenly;
   padding: 0 20px;
 
+  .btn-primary {
+    &:hover {
+      background-color: $color-teal-dark;
+      a {
+        color: $color-teal-light;
+      }
+    }
+    &:active,
+    &:focus {
+      a {
+        color: $color-teal-light;
+      }
+    }
+    a {
+      color: $color-teal-darker;
+      text-decoration: none;
+    }
+  }
+
   &__container {
     max-width: 80vw;
     margin: auto;
@@ -72,22 +91,8 @@
         right: 0;
         margin-right: 10px;
         background-color: $color-teal;
-
         &:hover {
           background-color: $color-teal-dark;
-          a {
-            color: $color-teal-light;
-          }
-        }
-        &:active,
-        &:focus {
-          a {
-            color: $color-teal-light;
-          }
-        }
-        a {
-          color: $color-teal-darker;
-          text-decoration: none;
         }
       }
     }

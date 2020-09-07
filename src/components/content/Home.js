@@ -46,7 +46,7 @@ const Home = () => {
           <span>Representing an eggcellent nation!</span>
           <div className="submit">
             <button className="btn btn-primary" aria-label="Volunteer here">
-              Volunteer here
+              <NavLink to="/Volunteer">Volunteer here</NavLink>
             </button>
           </div>
         </div>
