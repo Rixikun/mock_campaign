@@ -4,6 +4,8 @@ import axios from "axios";
 import ModuleThanks from "../ui/ModuleThanks";
 import { UseInput } from "../hooks";
 
+const mii = require("../../assets/images/mii.png");
+
 const SingleUser = (props) => {
   const state = props.location.state;
   const [press, setPress] = useState(false);
@@ -51,7 +53,11 @@ const SingleUser = (props) => {
     <div className="SingleUser">
       <header>
         <h2>This is {state.name}</h2>
+        <div className="photo__container">
+          <img src={mii} className="photo" />
+        </div>
       </header>
+      <span className="divider"></span>
       <main>
         <p>{state.name} believes in the eggcellent candidate!</p>
         <form onSubmit={submitHandler}>

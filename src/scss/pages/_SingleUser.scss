@@ -1,20 +1,32 @@
 @import "scss/abstracts/mixins";
 
 .SingleUser {
-  @include flex-col-spaceBetween;
+  @include flex-col-spaceEvenly;
   min-height: 75vh;
   height: 100%;
 
   header {
     text-align: center;
     margin: 2rem 0;
+    .photo__container {
+      height: 25%;
+      margin-top: 2rem;
+      .photo {
+        object-fit: contain;
+        background: none;
+      }
+    }
   }
-
+  .divider {
+    height: 0;
+    width: 40%;
+    margin: auto;
+    border-bottom: 1px solid $color-orange;
+  }
   main {
     @include flex-col-spaceEvenly;
     margin: 2rem 10%;
     align-items: center;
-    height: 50vh;
 
     form {
       @include flex-col-spaceEvenly;

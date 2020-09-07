@@ -4,12 +4,29 @@ import Media from "react-media";
 
 import { fetchPeople } from "../../redux";
 
+const logo_abc = require("../../assets/images/logo_abc.png");
+const logo_msnbc = require("../../assets/images/logo_msnbc.jpg");
+const logo_nyt = require("../../assets/images/logo_nyt.jpg");
+const logo_wp = require("../../assets/images/logo_wp.jfif");
+const logo_wsj = require("../../assets/images/logo_wsj.png");
+
 const Endorsement = ({ peopleData, fetchPeople }) => {
   useEffect(() => {
     fetchPeople();
   }, []);
 
-  const publicity = new Array(10).fill("company logo");
+  const publicity = [
+    logo_abc,
+    logo_msnbc,
+    logo_nyt,
+    logo_wp,
+    logo_wsj,
+    logo_abc,
+    logo_msnbc,
+    logo_nyt,
+    logo_wp,
+    logo_wsj,
+  ];
 
   return peopleData.loading ? (
     <h2>Loading . . .</h2>
@@ -59,7 +76,7 @@ const Endorsement = ({ peopleData, fetchPeople }) => {
       <div className="publicity__container">
         {publicity.map((logo) => (
           <div className="company">
-            <div className="photo photo4">{logo}</div>
+            <img className="photo photo4" src={logo} />
           </div>
         ))}
       </div>

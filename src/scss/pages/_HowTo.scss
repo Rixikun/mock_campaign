@@ -34,41 +34,55 @@
     width: 50px;
   }
 
+  .description {
+    margin: 3rem auto;
+
+    a {
+      color: $color-orange;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+  }
   &__container {
     @include flex-col-spaceEvenly;
     margin: 20px auto;
     width: 90vw;
     h5 {
       text-align: center;
+      margin-bottom: 2rem;
     }
 
     .item1,
     .item2 {
       margin: 10px 20px;
     }
-
-    @include breakpoint(phablet) {
-      max-width: 800px;
-      .item1 {
-        @include flex-row-spaceEvenly;
-        p {
-          max-width: 50%;
-          margin: 10px 10px 40px 20px;
-        }
-
-        .photo__container {
-          max-width: 40%;
-        }
-      }
-    }
   }
-
+  div:nth-child(2) {
+    margin: 0;
+  }
+  .photo3 {
+    width: 300px;
+  }
   // breakpoint: larger than mobile
 
   @include breakpoint(phablet) {
+    &__container {
+      max-width: 800px;
+    }
+    .item1 {
+      @include flex-row-spaceEvenly;
+      p {
+        max-width: 50%;
+        margin: 10px 10px 40px 20px;
+      }
+
+      .photo__container {
+        max-width: 40%;
+      }
+    }
     .photo5 {
-      width: calc(16 * 5vw);
-      height: calc(9 * 5vw);
+      width: 100vw;
+      height: 100%;
     }
   }
 }
