@@ -17,14 +17,7 @@ const SingleUser = (props) => {
   const [newEmail, bindNewEmail, resetNewEmail] = UseInput("");
   const [oldEmail, bindOldEmail, resetOldEmail] = UseInput("");
   const url = `https://mock-campaign-server.herokuapp.com/api/users/${id}`;
-  const getUser = async () => {
-    try {
-      const { data } = await axios.get(url);
-      setCurrEmail(data.email);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+
   const updateUser = async () => {
     try {
       setUpdating(true);
@@ -41,10 +34,16 @@ const SingleUser = (props) => {
     }
   };
   useEffect(() => {
-    let isMounted = true;
-    isMounted && getUser();
-    return () => (isMounted = false);
-  }, []);
+    const getUser = async () => {
+      try {
+        const { data } = await axios.get(url);
+        setCurrEmail(data.email);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getUser();
+  }, [url]);
 
   const submitHandler = async (e) => {
     e.preventDefault();

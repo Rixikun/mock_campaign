@@ -11,7 +11,11 @@ const logo_wp = require("../../assets/images/logo_wp.jfif");
 const logo_wsj = require("../../assets/images/logo_wsj.png");
 
 const Endorsement = ({ peopleData, fetchPeople }) => {
-  useEffect(fetchPeople(), []);
+  useEffect(() => {
+    let isMounted = true;
+    isMounted && fetchPeople();
+    return () => (isMounted = false);
+  }, [fetchPeople]);
 
   const publicity = [
     logo_abc,
@@ -72,8 +76,8 @@ const Endorsement = ({ peopleData, fetchPeople }) => {
       </div>
 
       <div className="publicity__container">
-        {publicity.map((logo) => (
-          <div className="company">
+        {publicity.map((logo, idx) => (
+          <div className="company" key={idx}>
             <img className="photo photo4" src={logo} alt="company logo" />
           </div>
         ))}

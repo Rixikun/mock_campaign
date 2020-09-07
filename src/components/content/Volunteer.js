@@ -9,13 +9,18 @@ const Volunteer = () => {
 
   const url = "https://mock-campaign-server.herokuapp.com/api/users/";
 
-  const getUsers = async () => {
-    const { data } = await axios.get(url);
-    setUsers(data);
-  };
-
   useEffect(() => {
-    getUsers();
+    let isMounted = true;
+    const getUsers = async () => {
+      try {
+        const { data } = await axios.get(url);
+        setUsers(data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    isMounted && getUsers();
+    return () => (isMounted = false);
   }, [users]);
 
   const userNames = users.map((e) => (
