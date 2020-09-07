@@ -43,15 +43,18 @@ const HowTo = () => {
   const [selected, setSelected] = useState(null);
   getUserLocation();
   useEffect(() => {
-    getPolls();
+    let mounted = true;
+    mounted && getPolls();
     const listener = (e) => {
       if (e.key === "Escape") {
         setSelected(null);
       }
     };
     window.addEventListener("keydown", listener);
-
-    return () => window.removeEventListener("keydown", listener);
+    return () => {
+      window.removeEventListener("keydown", listener);
+      mounted = false;
+    };
   }, []);
 
   function markerHandler(e, pt) {
