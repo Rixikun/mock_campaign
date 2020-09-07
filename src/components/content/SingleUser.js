@@ -18,8 +18,12 @@ const SingleUser = (props) => {
   const [oldEmail, bindOldEmail, resetOldEmail] = UseInput("");
   const url = `https://mock-campaign-server.herokuapp.com/api/users/${id}`;
   const getUser = async () => {
-    const { data } = await axios.get(url);
-    setCurrEmail(data.email);
+    try {
+      const { data } = await axios.get(url);
+      setCurrEmail(data.email);
+    } catch (err) {
+      console.log(err);
+    }
   };
   const updateUser = async () => {
     try {
@@ -37,7 +41,9 @@ const SingleUser = (props) => {
     }
   };
   useEffect(() => {
-    getUser();
+    let isMounted = true;
+    isMounted && getUser();
+    return () => (isMounted = false);
   }, []);
 
   const submitHandler = async (e) => {
@@ -54,7 +60,7 @@ const SingleUser = (props) => {
       <header>
         <h2>This is {state.name}</h2>
         <div className="photo__container">
-          <img src={mii} className="photo" />
+          <img src={mii} className="photo" alt="mii avatar" />
         </div>
       </header>
       <span className="divider"></span>

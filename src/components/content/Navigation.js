@@ -44,7 +44,7 @@ const Navigation = (props) => {
     return (
       <>
         <div className="dropdown__container" onClick={(e) => toggle(e)}>
-          <a className="fa fa-chevron-down"></a>
+          <span className="fa fa-chevron-down"></span>
         </div>
         {result}
       </>

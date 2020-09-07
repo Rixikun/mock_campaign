@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import Media from "react-media";
 
@@ -11,9 +11,7 @@ const logo_wp = require("../../assets/images/logo_wp.jfif");
 const logo_wsj = require("../../assets/images/logo_wsj.png");
 
 const Endorsement = ({ peopleData, fetchPeople }) => {
-  useEffect(() => {
-    fetchPeople();
-  }, []);
+  useEffect(fetchPeople(), []);
 
   const publicity = [
     logo_abc,

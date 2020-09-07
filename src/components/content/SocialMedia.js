@@ -5,7 +5,7 @@ const SocialMedia = () => {
     <div className="social__container">
       <span>Follow us on</span>
       <div className="social__container__icons">
-        <a href="#" aria-label="facebook">
+        <a href="https://www.facebook.com/" aria-label="facebook">
           <i className="fa fa-facebook"></i>
         </a>
         <a href="https://twitter.com/LinXiaDev/" aria-label="twitter">
