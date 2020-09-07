@@ -3,6 +3,8 @@ import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import axios from "axios";
 
 import markerIcon from "../../assets/images/map-marker-alt-solid.svg";
+const poll = require("../../assets/images/polls.jpg");
+const poll_sign = require("../../assets/images/poll_sign.jpg");
 
 const HowTo = () => {
   const [polls, setPolls] = useState([]);
@@ -41,15 +43,18 @@ const HowTo = () => {
   const [selected, setSelected] = useState(null);
   getUserLocation();
   useEffect(() => {
-    getPolls();
+    let mounted = true;
+    mounted && getPolls();
     const listener = (e) => {
       if (e.key === "Escape") {
         setSelected(null);
       }
     };
     window.addEventListener("keydown", listener);
-
-    return () => window.removeEventListener("keydown", listener);
+    return () => {
+      window.removeEventListener("keydown", listener);
+      mounted = false;
+    };
   }, []);
 
   function markerHandler(e, pt) {
@@ -62,11 +67,15 @@ const HowTo = () => {
         <h2>How To Vote</h2>
       </div>
       <div className="photo__container">
-        <div className="photo photo5">(wide shot)</div>
+        <img
+          className="photo photo5"
+          src={poll}
+          alt="Row of people at voting booths"
+        />
       </div>
 
       <div className="description">
-        <h4>Make sure to vote by (date_here) !</h4>
+        <h3>Make sure to vote by November 3rd!</h3>
         <a href="https://nyc.pollsitelocator.com/search">
           Where is my polling place in NYC?
         </a>
@@ -88,7 +97,11 @@ const HowTo = () => {
               Mauris pretium a est et ornare.
             </p>
             <div className="photo__container">
-              <div className="photo photo3">(accompanying img)</div>
+              <img
+                className="photo photo3"
+                src={poll_sign}
+                alt="Poll sign saying vote here"
+              />
             </div>
           </div>
           <div className="item2">

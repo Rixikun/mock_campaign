@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { UseInput } from "../hooks";
 
 import Navigation from "./Navigation";
@@ -6,9 +6,15 @@ import SocialMedia from "./SocialMedia";
 
 const Footer = () => {
   const [email, bindEmail, resetEmail] = UseInput("");
+  const [submit, setSubmit] = useState(false);
+
   const submitHandler = (e) => {
     e.preventDefault();
-    resetEmail();
+    setSubmit(true);
+    setTimeout(() => {
+      resetEmail();
+      setSubmit(false);
+    }, 10000);
   };
 
   return (
@@ -33,7 +39,16 @@ const Footer = () => {
               ></input>
             </div>
             <div className="submit">
-              <button className="btn btn-primary" aria-label="Submit email">Submit</button>
+              <button className="btn btn-primary" aria-label="Submit email">
+                Submit
+              </button>
+              {submit ? (
+                <p>
+                  Thank you for signing up. We'll keep you updated at: {email}
+                </p>
+              ) : (
+                ""
+              )}
             </div>
           </form>
         </div>

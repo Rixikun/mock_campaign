@@ -10,13 +10,10 @@ const ModuleThanks = (props) => {
   const [email, bindEmail, resetEmail] = UseInput("");
 
   const url = `https://mock-campaign-server.herokuapp.com/api/users/${props.id}`;
-  const getUser = async () => {
-    const { data } = await axios.get(url);
-    user.email = data.email;
-  };
+
   const deleteUser = async () => {
     try {
-      const { data } = await axios.delete(url);
+      await axios.delete(url);
       resetEmail();
     } catch (err) {
       console.log(err);
@@ -37,8 +34,18 @@ const ModuleThanks = (props) => {
   };
 
   useEffect(() => {
-    getUser();
-  }, []);
+    const getUser = async () => {
+      try {
+        const { data } = await axios.get(url);
+        setUser(data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    let isMounted = true;
+    isMounted && getUser();
+    return () => (isMounted = false);
+  }, [url]);
 
   const deleteReq = !deleting ? (
     <form className="form-delete" onSubmit={submitHandler}>

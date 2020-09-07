@@ -4,6 +4,8 @@ import axios from "axios";
 import ModuleThanks from "../ui/ModuleThanks";
 import { UseInput } from "../hooks";
 
+const mii = require("../../assets/images/mii.png");
+
 const SingleUser = (props) => {
   const state = props.location.state;
   const [press, setPress] = useState(false);
@@ -15,10 +17,7 @@ const SingleUser = (props) => {
   const [newEmail, bindNewEmail, resetNewEmail] = UseInput("");
   const [oldEmail, bindOldEmail, resetOldEmail] = UseInput("");
   const url = `https://mock-campaign-server.herokuapp.com/api/users/${id}`;
-  const getUser = async () => {
-    const { data } = await axios.get(url);
-    setCurrEmail(data.email);
-  };
+
   const updateUser = async () => {
     try {
       setUpdating(true);
@@ -35,8 +34,16 @@ const SingleUser = (props) => {
     }
   };
   useEffect(() => {
+    const getUser = async () => {
+      try {
+        const { data } = await axios.get(url);
+        setCurrEmail(data.email);
+      } catch (err) {
+        console.log(err);
+      }
+    };
     getUser();
-  }, []);
+  }, [url]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -51,7 +58,11 @@ const SingleUser = (props) => {
     <div className="SingleUser">
       <header>
         <h2>This is {state.name}</h2>
+        <div className="photo__container">
+          <img src={mii} className="photo" alt="mii avatar" />
+        </div>
       </header>
+      <span className="divider"></span>
       <main>
         <p>{state.name} believes in the eggcellent candidate!</p>
         <form onSubmit={submitHandler}>

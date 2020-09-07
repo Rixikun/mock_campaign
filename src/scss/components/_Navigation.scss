@@ -80,9 +80,15 @@
   .dropdown__container {
     width: 50px;
     height: 50px;
-    a {
+    span {
       @include flex-row-spaceEvenly;
       margin: 17px;
+      color: $color-orange-lighter;
+
+      &:hover,
+      &:active {
+        color: $color-orange-light;
+      }
     }
   }
 

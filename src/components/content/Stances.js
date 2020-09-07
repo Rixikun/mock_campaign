@@ -1,5 +1,15 @@
 import React from "react";
 
+const nyc = require("../../assets/images/nyc_sky.jpg");
+const classroom = require("../../assets/images/classroom.png");
+const housing = require("../../assets/images/housing.jpg");
+const immigration = require("../../assets/images/immigration.jpg");
+const Jackson_Heights = require("../../assets/images/Jackson_Heights.jpg");
+const lgbtq = require("../../assets/images/lgbtq.jpg");
+const mta = require("../../assets/images/mta.png");
+const pediatrician = require("../../assets/images/pediatrician.jpg");
+const womens_march = require("../../assets/images/womens_march.jpg");
+
 const Stances = () => {
   return (
     <div className="stances">
@@ -7,14 +17,18 @@ const Stances = () => {
         <h2> Stances</h2>
       </div>
       <div className="photo__container">
-        <div className="photo"></div>
+        <img src={nyc} className="photo" alt="cityscape" />
       </div>
       <div className="stances__container">
         <div className="grid__container">
           <div className="section section1">
             <h3>Education</h3>
             <div className="photo__container">
-              <div className="photo photo3"> (video here) </div>
+              <img
+                src={classroom}
+                className="photo photo3"
+                alt="Middle school classroom with students and teacher"
+              />
             </div>
 
             <p>
@@ -33,7 +47,11 @@ const Stances = () => {
           <div className="section section2">
             <h3>Public Health</h3>
             <div className="photo__container">
-              <div className="photo photo3"> (video here) </div>
+              <img
+                src={pediatrician}
+                className="photo photo3"
+                alt="Pediatrician happily listening to smiling baby's heartbeat"
+              />
             </div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget
@@ -51,7 +69,11 @@ const Stances = () => {
           <div className="section section3">
             <h3>Infrastructure</h3>
             <div className="photo__container">
-              <div className="photo photo3"> (video here) </div>
+              <img
+                src={mta}
+                className="photo photo3"
+                alt="MTA construction worker with passing train behind him"
+              />
             </div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget
@@ -69,7 +91,11 @@ const Stances = () => {
           <div className="section section4">
             <h3>Housing</h3>
             <div className="photo__container">
-              <div className="photo photo3"> (video here) </div>
+              <img
+                src={housing}
+                className="photo photo3"
+                alt="View of tall housing project from the ground"
+              />
             </div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget
@@ -87,7 +113,11 @@ const Stances = () => {
           <div className="section section5">
             <h3>Business</h3>
             <div className="photo__container">
-              <div className="photo photo3"> (video here) </div>
+              <img
+                src={Jackson_Heights}
+                className="photo photo3"
+                alt="Busy shopping street in Jackson Heights under a train path"
+              />
             </div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget
@@ -105,7 +135,11 @@ const Stances = () => {
           <div className="section section6">
             <h3>Women's Rights</h3>
             <div className="photo__container">
-              <div className="photo photo3"> (video here) </div>
+              <img
+                src={womens_march}
+                className="photo photo3"
+                alt="Women's march with many people wearing pink knit hats and holding signs"
+              />
             </div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget
@@ -123,7 +157,11 @@ const Stances = () => {
           <div className="section section7">
             <h3>LGBTQA</h3>
             <div className="photo__container">
-              <div className="photo photo3"> (video here) </div>
+              <img
+                src={lgbtq}
+                className="photo photo3"
+                alt="Pride parade with many people carrying a very long pride flag"
+              />
             </div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget
@@ -141,7 +179,11 @@ const Stances = () => {
           <div className="section section8">
             <h3>Immigration</h3>
             <div className="photo__container">
-              <div className="photo photo3"> (video here) </div>
+              <img
+                src={immigration}
+                className="photo photo3"
+                alt="Protest in support of immigrants in NY with people holding signs"
+              />
             </div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget

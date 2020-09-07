@@ -3,14 +3,13 @@ import { UseInput } from "../hooks";
 import axios from "axios";
 import ModuleThanks from "../ui/ModuleThanks";
 
-const VolunteerForm = () => {
+const VolunteerForm = (props) => {
   const [firstName, bindFirstName, resetFirstName] = UseInput("");
   const [lastName, bindLastName, resetLastName] = UseInput("");
   const [email, bindEmail, resetEmail] = UseInput("");
   const [phoneNumber, bindPhoneNumber, resetPhoneNumber] = UseInput("");
 
   const [press, setPress] = useState(false);
-
   const submitHandler = async (e) => {
     e.preventDefault();
     setPress(true);
@@ -20,6 +19,7 @@ const VolunteerForm = () => {
       email,
       phone: Number(phoneNumber),
     });
+    props.handleUpdate();
     setTimeout(() => {
       setPress(false);
       resetFirstName();
