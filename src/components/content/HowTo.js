@@ -44,13 +44,15 @@ const HowTo = () => {
   getUserLocation();
   useEffect(() => {
     let mounted = true;
-    mounted && getPolls();
     const listener = (e) => {
       if (e.key === "Escape") {
         setSelected(null);
       }
     };
-    window.addEventListener("keydown", listener);
+    if (mounted) {
+      getPolls();
+      window.addEventListener("keydown", listener);
+    }
     return () => {
       window.removeEventListener("keydown", listener);
       mounted = false;
