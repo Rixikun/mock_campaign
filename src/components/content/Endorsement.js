@@ -76,7 +76,7 @@ const Endorsement = ({ peopleData, fetchPeople }) => {
       <div className="publicity__container">
         {publicity.map((logo) => (
           <div className="company">
-            <img className="photo photo4" src={logo} />
+            <img className="photo photo4" src={logo} alt="company logo" />
           </div>
         ))}
       </div>

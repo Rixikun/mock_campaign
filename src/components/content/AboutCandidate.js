@@ -1,5 +1,7 @@
 import React from "react";
 
+const egg = require("../../assets/images/egg.png");
+
 const AboutCandidate = () => {
   return (
     <div className="about">
@@ -8,7 +10,7 @@ const AboutCandidate = () => {
         <h1>About Candidate</h1>
       </div>
       <div className="photo__container">
-        <div className="photo">(portrait shot)</div>
+        <img className="photo" src={egg} alt="profile" />
       </div>
       <div className="description">
         <p>
@@ -68,7 +70,7 @@ const AboutCandidate = () => {
           neque. In eu sollicitudin augue.
         </p>
       </div>
-      <div className="photo photo2">(headshot)</div>
+      <img className="photo photo2" src={egg} alt="profile" />
     </div>
   );
 };

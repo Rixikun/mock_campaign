@@ -1,10 +1,12 @@
 import React from "react";
-import SocialMedia from "../content/SocialMedia";
+import { NavLink } from "react-router-dom";
 import { Parallax } from "react-parallax";
+
+import SocialMedia from "../content/SocialMedia";
 
 const nyc = require("../../assets/images/nyc_sky.jpg");
 const cloud1 = require("../../assets/images/cloud_01.png");
-const cloud2 = require("../../assets/images/cloud_02.png");
+const egg = require("../../assets/images/egg.png");
 
 const Home = () => {
   return (
@@ -67,7 +69,7 @@ const Home = () => {
         <div className="grid__container">
           <div className="section section1">
             <p>
-              My name is Lin Xia. I am a budding web developer. From art,
+              My name is Lin Xia. I am a JavaScript web developer. From art,
               animation, and coffee I made the transition into web development
               by attending a fullstack development bootcamp. After graduating I
               volunteered to help teach the foundations of web development to
@@ -141,7 +143,12 @@ const Home = () => {
               }}
             >
               <div style={{ height: "100vh" }}>
-                <div className="center__text">GET INVOLVED</div>
+                <button
+                  className="btn center__text"
+                  aria-label="Volunteer here"
+                >
+                  <NavLink to="/Volunteer">GET INVOLVED</NavLink>
+                </button>
               </div>
             </Parallax>
           </div>
@@ -163,7 +170,7 @@ const Home = () => {
             </p>
           </div>
           <div className="photo__container">
-            <div className="photo"> Accompanying shot </div>
+            <img className="photo" src={egg} alt="profile" />
           </div>
         </div>
       </div>

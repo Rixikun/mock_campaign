@@ -64,7 +64,11 @@ const HowTo = () => {
         <h2>How To Vote</h2>
       </div>
       <div className="photo__container">
-        <img className="photo photo5" src={poll} />
+        <img
+          className="photo photo5"
+          src={poll}
+          alt="Row of people at voting booths"
+        />
       </div>
 
       <div className="description">
@@ -93,7 +97,7 @@ const HowTo = () => {
               <img
                 className="photo photo3"
                 src={poll_sign}
-                alt="poll sign vote here"
+                alt="Poll sign saying vote here"
               />
             </div>
           </div>
