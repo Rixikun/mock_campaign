@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import { buySticker } from "../../redux/index";
+import { buySticker, fetchHistory } from "../../redux/index";
 import ModuleWarning from "../ui/ModuleWarning";
 
 const StickerContainer = (props) => {
@@ -56,7 +56,10 @@ const StickerContainer = (props) => {
           aria-label={`Buy ${num} stickers`}
           onClick={
             num < props.numOfStickers
-              ? () => props.buySticker(num, finish)
+              ? () => {
+                  props.buySticker(num, finish);
+                  props.updateHistory(`${num} ${finish} ${props.name}`);
+                }
               : () => {
                   setToggle(true);
                   setMsg(msg2);
@@ -80,12 +83,14 @@ const StickerContainer = (props) => {
 const mapStateToProps = (state) => {
   return {
     numOfStickers: state.sticker.numOfStickers,
+    name: state.sticker.name,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     buySticker: (num, finish) => dispatch(buySticker(num, finish)),
+    updateHistory: (purchase) => dispatch(fetchHistory(purchase)),
   };
 };
 

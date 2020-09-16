@@ -13,7 +13,7 @@ const Merchandise = (props) => {
       <div className="description">
         <p>Support us and spread the word by purchasing one of our goods!</p>
         <ol className="purchase-history">
-          {props.history.map((purchase, idx) => (
+          {props.purchaseHistory.map((purchase, idx) => (
             <li key={idx}>{purchase}</li>
           ))}
         </ol>
@@ -28,7 +28,7 @@ const Merchandise = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    history: state.sticker.history,
+    purchaseHistory: state.general.purchaseHistory,
   };
 };
 

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import { buyShirt } from "../../redux/index";
+import { buyShirt, fetchHistory } from "../../redux/index";
 import ModuleWarning from "../ui/ModuleWarning";
 
 const ShirtContainer = (props) => {
   const [num, setNum] = useState(1);
+  const [size, setSize] = useState("small");
   const [toggle, setToggle] = useState(false);
   const [msg, setMsg] = useState("");
 
@@ -33,6 +34,21 @@ const ShirtContainer = (props) => {
             }}
           ></input>
         </div>
+        <div className="field">
+          <label htmlFor="shirtSize">Select size</label>
+          <select
+            id="shirtSize"
+            name="shirtSize"
+            value={size}
+            onChange={(e) => {
+              setSize(e.target.value);
+            }}
+          >
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </div>
       </div>
       <div className="submit">
         <button
@@ -40,7 +56,10 @@ const ShirtContainer = (props) => {
           aria-label={`Buy ${num} shirts`}
           onClick={
             num < props.numOfShirts
-              ? () => props.buyShirt(num)
+              ? () => {
+                  props.buyShirt(num, size);
+                  props.updateHistory(`${num} ${size} ${props.name}`);
+                }
               : () => {
                   setToggle(true);
                   setMsg(msg2);
@@ -48,7 +67,7 @@ const ShirtContainer = (props) => {
                 }
           }
         >
-          Buy {num} Shirts
+          Buy {num} {size} Shirts
         </button>
       </div>
       {toggle ? (
@@ -64,12 +83,14 @@ const ShirtContainer = (props) => {
 const mapStateToProps = (state) => {
   return {
     numOfShirts: state.shirt.numOfShirts,
+    name: state.shirt.name,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    buyShirt: (num) => dispatch(buyShirt(num)),
+    buyShirt: (num, size) => dispatch(buyShirt(num, size)),
+    updateHistory: (purchase) => dispatch(fetchHistory(purchase)),
   };
 };
 

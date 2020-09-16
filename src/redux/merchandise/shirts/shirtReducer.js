@@ -3,6 +3,8 @@ import { BUY_SHIRT } from "./shirtTypes";
 const initialState = {
   name: "shirts",
   numOfShirts: 100,
+  size: "",
+  boughtShirts: 0,
 };
 
 const shirtReducer = (state = initialState, action) => {
@@ -10,7 +12,9 @@ const shirtReducer = (state = initialState, action) => {
     case BUY_SHIRT:
       return {
         ...state,
-        numOfShirts: state.numOfShirts - action.payload,
+        numOfShirts: state.numOfShirts - action.payload.num,
+        size: action.payload.size,
+        boughtShirts: action.payload.num,
       };
 
     default:

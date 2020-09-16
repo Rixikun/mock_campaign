@@ -1,0 +1,3 @@
+const FETCH_HISTORY = "FETCH_HISTORY";
+
+export { FETCH_HISTORY };
