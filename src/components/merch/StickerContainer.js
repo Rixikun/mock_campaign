@@ -15,36 +15,40 @@ const StickerContainer = (props) => {
 
   return (
     <div className="stickers__container">
-      <div className="field">
-        <label htmlFor="stickersInput">
-          Stickers left <br />
-          <span>{props.numOfStickers}</span>
-        </label>
-        <input
-          id="stickersInput"
-          type="number"
-          value={num}
-          onChange={(e) => {
-            if (e.target.value > 1000) {
-              setToggle(true);
-              setMsg(msg1);
-            } else {
-              setNum(e.target.value);
-            }
-          }}
-        ></input>
-        <label htmlFor="stickersFinish">Select finish</label>
-        <select
-          id="stickersFinish"
-          name="stickersFinish"
-          value={finish}
-          onChange={(e) => {
-            setFinish(e.target.value);
-          }}
-        >
-          <option value="matte">Matte</option>
-          <option value="gloss">Gloss</option>
-        </select>
+      <div className="field__container">
+        <div className="field">
+          <label htmlFor="stickersInput">
+            Stickers left <br />
+            <span>{props.numOfStickers}</span>
+          </label>
+          <input
+            id="stickersInput"
+            type="number"
+            value={num}
+            onChange={(e) => {
+              if (e.target.value > 1000) {
+                setToggle(true);
+                setMsg(msg1);
+              } else {
+                setNum(e.target.value);
+              }
+            }}
+          ></input>
+        </div>
+        <div className="field">
+          <label htmlFor="stickersFinish">Select finish</label>
+          <select
+            id="stickersFinish"
+            name="stickersFinish"
+            value={finish}
+            onChange={(e) => {
+              setFinish(e.target.value);
+            }}
+          >
+            <option value="matte">Matte</option>
+            <option value="gloss">Gloss</option>
+          </select>
+        </div>
       </div>
       <div className="submit">
         <button

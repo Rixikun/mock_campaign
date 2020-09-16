@@ -4,6 +4,11 @@
   @include flex-col-spaceEvenly;
   min-height: calc(100vh - 400px);
 
+  .purchase-history {
+    max-height: 350px;
+    overflow: auto;
+  }
+
   &__container {
     @include flex-col-spaceEvenly;
     margin: 20px auto;
@@ -12,12 +17,16 @@
     text-align: center;
     .stickers__container,
     .shirts__container {
-      @include flex-row-spaceBetween;
+      @include flex-col-spaceBetween;
       margin: 10px;
-
+      .field__container {
+        @include flex-col-spaceEvenly;
+        width: 100%;
+      }
       .field {
         @include flex-row-spaceBetween;
-        width: 50%;
+        width: 100%;
+        margin: 0.5rem 0;
         input {
           width: 60px;
           height: 40px;
@@ -37,6 +46,7 @@
       button {
         max-width: 150px;
         overflow: hidden;
+        float: right;
       }
     }
 
@@ -44,6 +54,17 @@
 
     @include breakpoint(phablet) {
       width: 100%;
+      .stickers__container,
+      .shirts__container {
+        @include flex-row-spaceBetween;
+        .field__container {
+          width: 50%;
+        }
+
+        button {
+          float: none;
+        }
+      }
     }
   }
 }

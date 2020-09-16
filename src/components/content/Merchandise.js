@@ -12,7 +12,7 @@ const Merchandise = (props) => {
       </div>
       <div className="description">
         <p>Support us and spread the word by purchasing one of our goods!</p>
-        <ol>
+        <ol className="purchase-history">
           {props.history.map((purchase, idx) => (
             <li key={idx}>{purchase}</li>
           ))}

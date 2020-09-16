@@ -14,23 +14,25 @@ const ShirtContainer = (props) => {
 
   return (
     <div className="shirts__container">
-      <div className="field">
-        <label>
-          Shirts left <br />
-          <span>{props.numOfShirts}</span>
-        </label>
-        <input
-          type="number"
-          value={num}
-          onChange={(e) => {
-            if (e.target.value > 1000) {
-              setToggle(true);
-              setMsg(msg1);
-            } else {
-              setNum(e.target.value);
-            }
-          }}
-        ></input>
+      <div className="field__container">
+        <div className="field">
+          <label>
+            Shirts left <br />
+            <span>{props.numOfShirts}</span>
+          </label>
+          <input
+            type="number"
+            value={num}
+            onChange={(e) => {
+              if (e.target.value > 1000) {
+                setToggle(true);
+                setMsg(msg1);
+              } else {
+                setNum(e.target.value);
+              }
+            }}
+          ></input>
+        </div>
       </div>
       <div className="submit">
         <button
