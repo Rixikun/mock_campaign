@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import { buyShirt, fetchHistory } from "../../redux/index";
+import { buyShirt, updateHistory } from "../../redux/index";
 import ModuleWarning from "../ui/ModuleWarning";
 
 const ShirtContainer = (props) => {
@@ -90,7 +90,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     buyShirt: (num, size) => dispatch(buyShirt(num, size)),
-    updateHistory: (purchase) => dispatch(fetchHistory(purchase)),
+    updateHistory: (purchase) => dispatch(updateHistory(purchase)),
   };
 };
 

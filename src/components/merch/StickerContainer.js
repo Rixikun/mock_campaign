@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import { buySticker, fetchHistory } from "../../redux/index";
+import { buySticker, updateHistory } from "../../redux/index";
 import ModuleWarning from "../ui/ModuleWarning";
 
 const StickerContainer = (props) => {
@@ -90,7 +90,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     buySticker: (num, finish) => dispatch(buySticker(num, finish)),
-    updateHistory: (purchase) => dispatch(fetchHistory(purchase)),
+    updateHistory: (purchase) => dispatch(updateHistory(purchase)),
   };
 };
 

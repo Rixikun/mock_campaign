@@ -1,8 +1,12 @@
-import { FETCH_HISTORY } from "./merchTypes";
+import { UPDATE_HISTORY } from "./merchTypes";
 
-const merchReducer = (state = { purchaseHistory: [] }, action) => {
+const initialState = {
+  purchaseHistory: [],
+};
+
+const merchReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_HISTORY:
+    case UPDATE_HISTORY:
       return {
         ...state,
         purchaseHistory: [...state.purchaseHistory, action.payload],

@@ -1,6 +1,8 @@
-export const fetchHistory = (purchase) => {
+import { UPDATE_HISTORY } from "./merchTypes";
+
+export const updateHistory = (purchase) => {
   return {
-    type: "FETCH_HISTORY",
+    type: UPDATE_HISTORY,
     payload: purchase,
   };
 };
