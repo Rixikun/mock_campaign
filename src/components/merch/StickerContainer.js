@@ -6,6 +6,7 @@ import ModuleWarning from "../ui/ModuleWarning";
 
 const StickerContainer = (props) => {
   const [num, setNum] = useState(1);
+  const [finish, setFinish] = useState("matte");
   const [toggle, setToggle] = useState(false);
   const [msg, setMsg] = useState("");
 
@@ -15,11 +16,12 @@ const StickerContainer = (props) => {
   return (
     <div className="stickers__container">
       <div className="field">
-        <label>
+        <label htmlFor="stickersInput">
           Stickers left <br />
           <span>{props.numOfStickers}</span>
         </label>
         <input
+          id="stickersInput"
           type="number"
           value={num}
           onChange={(e) => {
@@ -31,6 +33,18 @@ const StickerContainer = (props) => {
             }
           }}
         ></input>
+        <label htmlFor="stickersFinish">Select finish</label>
+        <select
+          id="stickersFinish"
+          name="stickersFinish"
+          value={finish}
+          onChange={(e) => {
+            setFinish(e.target.value);
+          }}
+        >
+          <option value="matte">Matte</option>
+          <option value="gloss">Gloss</option>
+        </select>
       </div>
       <div className="submit">
         <button
@@ -38,7 +52,7 @@ const StickerContainer = (props) => {
           aria-label={`Buy ${num} stickers`}
           onClick={
             num < props.numOfStickers
-              ? () => props.buySticker(num)
+              ? () => props.buySticker(num, finish)
               : () => {
                   setToggle(true);
                   setMsg(msg2);
@@ -46,7 +60,7 @@ const StickerContainer = (props) => {
                 }
           }
         >
-          Buy {num} Stickers
+          Buy {num} {finish} Stickers
         </button>
       </div>
       {toggle ? (
@@ -67,7 +81,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    buySticker: (num) => dispatch(buySticker(num)),
+    buySticker: (num, finish) => dispatch(buySticker(num, finish)),
   };
 };
 

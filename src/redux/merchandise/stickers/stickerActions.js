@@ -1,8 +1,8 @@
 import { BUY_STICKER } from "./stickerTypes";
 
-export const buySticker = (num) => {
+export const buySticker = (num, finish) => {
   return {
     type: BUY_STICKER,
-    payload: num,
+    payload: { num, finish },
   };
 };
