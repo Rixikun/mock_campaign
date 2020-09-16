@@ -95,6 +95,15 @@
           background-color: $color-teal-dark;
         }
       }
+
+      .right__text {
+        top: 40%;
+        left: auto;
+        right: 0;
+        position: absolute;
+        margin-right: 10px;
+        width: auto;
+      }
     }
 
     @include breakpoint(phablet) {

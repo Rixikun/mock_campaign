@@ -41,3 +41,17 @@ export const fetchPeople = () => {
     }
   };
 };
+
+export const fetchVolunteers = () => {
+  return async (dispatch) => {
+    try {
+      dispatch(fetchPeopleRequest);
+      const url = "https://mock-campaign-server.herokuapp.com/api/users/";
+      const res = await axios.get(url);
+      const people = res.data;
+      dispatch(fetchPeopleSuccess(people));
+    } catch (err) {
+      dispatch(fetchPeopleFailure(err.message));
+    }
+  };
+};

@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { Parallax } from "react-parallax";
 
 import SocialMedia from "../content/SocialMedia";
+import { fetchVolunteers } from "../../redux";
 
 const nyc = require("../../assets/images/nyc_sky.jpg");
 const cloud1 = require("../../assets/images/cloud_01.png");
 const egg = require("../../assets/images/egg.png");
 
-const Home = () => {
+const Home = ({ volunteerData, fetchVolunteers }) => {
+  useEffect(() => {
+    let isMounted = true;
+    isMounted && fetchVolunteers();
+    return () => (isMounted = false);
+  }, [fetchVolunteers]);
+
   return (
     <div className="home">
       <div className="home__landing">
@@ -143,6 +151,12 @@ const Home = () => {
               }}
             >
               <div style={{ height: "100vh" }}>
+                {volunteerData && volunteerData.users && (
+                  <h5 className="right__text">
+                    <strong>{volunteerData.users.length}</strong> supporters and
+                    growing!
+                  </h5>
+                )}
                 <button
                   className="btn center__text btn-primary"
                   aria-label="Volunteer here"
@@ -178,4 +192,16 @@ const Home = () => {
   );
 };
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    volunteerData: state.people,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchVolunteers: () => dispatch(fetchVolunteers()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
