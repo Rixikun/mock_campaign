@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Media from "react-media";
 
-const Navigation = (props) => {
+type NavigationProps = { inFooter?: string };
+
+const Navigation = (props: NavigationProps) => {
   const names = [
     "About",
     "Stances",
@@ -28,8 +30,8 @@ const Navigation = (props) => {
     );
 
   // toggle dropdown list Component
-  function DropDown() {
-    function toggle(e) {
+  const DropDown: React.FunctionComponent = () => {
+    function toggle(e: React.MouseEvent<HTMLDivElement>) {
       e.preventDefault();
       setDisplay(!display);
     }
@@ -49,7 +51,7 @@ const Navigation = (props) => {
         {result}
       </>
     );
-  }
+  };
 
   return (
     <div className="navigation">
