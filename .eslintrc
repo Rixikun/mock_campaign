@@ -1,9 +1,9 @@
 {
-    "extends": [
-        "eslint:recommended",
-        "google"
-    ],
-    "rules": {
-        // Additional, per-project rules...
-    }
+  "extends": ["eslint:recommended", "google"],
+  "rules": {
+    // Additional, per-project rules...
+  },
+  "resolve": {
+    "extensions": [".js", ".json", ".ts", ".tsx"]
+  }
 }

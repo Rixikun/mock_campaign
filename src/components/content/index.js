@@ -3,7 +3,7 @@ import Donate from "./Donate.tsx";
 import Endorsement from "./Endorsement.tsx";
 import Footer from "./Footer.tsx";
 import Header from "./Header.tsx";
-import Home from "./Home";
+import Home from "./Home.tsx";
 import HowTo from "./HowTo";
 import Merchandise from "./Merchandise";
 import Navigation from "./Navigation.tsx";

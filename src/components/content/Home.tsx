@@ -10,11 +10,25 @@ const nyc = require("../../assets/images/nyc_sky.jpg");
 const cloud1 = require("../../assets/images/cloud_01.png");
 const egg = require("../../assets/images/egg.png");
 
-const Home = ({ volunteerData, fetchVolunteers }) => {
+type HomeProps = {
+  volunteerData: { users: []; loading: boolean; error: string };
+  fetchVolunteers: () => void;
+};
+
+interface IUsersState {
+  readonly users: [];
+  readonly error: string;
+  readonly loading: boolean;
+}
+
+const Home: React.FunctionComponent<HomeProps> = ({
+  volunteerData,
+  fetchVolunteers,
+}) => {
   useEffect(() => {
     let isMounted = true;
     isMounted && fetchVolunteers();
-    return () => (isMounted = false);
+    isMounted = false;
   }, [fetchVolunteers]);
 
   return (
@@ -192,13 +206,13 @@ const Home = ({ volunteerData, fetchVolunteers }) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: { people: IUsersState }) => {
   return {
     volunteerData: state.people,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
     fetchVolunteers: () => dispatch(fetchVolunteers()),
   };

@@ -1,6 +1,6 @@
 import React from "react";
 
-const SocialMedia = () => {
+const SocialMedia: React.FunctionComponent = () => {
   return (
     <div className="social__container">
       <span>Follow us on</span>
