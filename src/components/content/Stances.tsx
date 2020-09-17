@@ -10,7 +10,7 @@ const mta = require("../../assets/images/mta.png");
 const pediatrician = require("../../assets/images/pediatrician.jpg");
 const womens_march = require("../../assets/images/womens_march.jpg");
 
-const Stances = () => {
+const Stances: React.FunctionComponent = () => {
   return (
     <div className="stances">
       <div className="title">

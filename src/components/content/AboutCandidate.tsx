@@ -2,7 +2,7 @@ import React from "react";
 
 const egg = require("../../assets/images/egg.png");
 
-const AboutCandidate = () => {
+const AboutCandidate: React.FunctionComponent = () => {
   return (
     <div className="about">
       <div className="clearfix"></div>
