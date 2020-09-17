@@ -2,7 +2,7 @@ import React from "react";
 
 import Navigation from "./Navigation";
 
-const Header = () => {
+const Header: React.FunctionComponent = () => {
   return (
     <div className="header">
       <div className="clearfix"></div>

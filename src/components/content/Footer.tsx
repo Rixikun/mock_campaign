@@ -4,11 +4,11 @@ import { UseInput } from "../hooks";
 import Navigation from "./Navigation";
 import SocialMedia from "./SocialMedia";
 
-const Footer = () => {
+const Footer: React.FunctionComponent = () => {
   const [email, bindEmail, resetEmail] = UseInput("");
   const [submit, setSubmit] = useState(false);
 
-  const submitHandler = (e) => {
+  const submitHandler = (e: React.MouseEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmit(true);
     setTimeout(() => {
