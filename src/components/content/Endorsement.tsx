@@ -10,11 +10,25 @@ const logo_nyt = require("../../assets/images/logo_nyt.jpg");
 const logo_wp = require("../../assets/images/logo_wp.jfif");
 const logo_wsj = require("../../assets/images/logo_wsj.png");
 
-const Endorsement = ({ peopleData, fetchPeople }) => {
+type EndorsementProps = {
+  peopleData: { users: []; loading: boolean; error: string };
+  fetchPeople: () => void;
+};
+
+interface IPeopleState {
+  readonly users: [];
+  readonly error: string;
+  readonly loading: boolean;
+}
+
+const Endorsement: React.FunctionComponent<EndorsementProps> = ({
+  peopleData,
+  fetchPeople,
+}) => {
   useEffect(() => {
     let isMounted = true;
     isMounted && fetchPeople();
-    return () => (isMounted = false);
+    isMounted = false;
   }, [fetchPeople]);
 
   const publicity = [
@@ -30,9 +44,9 @@ const Endorsement = ({ peopleData, fetchPeople }) => {
     logo_wsj,
   ];
 
-  return peopleData.loading ? (
+  return peopleData && peopleData.loading ? (
     <h2>Loading . . .</h2>
-  ) : peopleData.error ? (
+  ) : peopleData && peopleData.error ? (
     <h2>{peopleData.error}</h2>
   ) : (
     <div className="endorsement">
@@ -43,14 +57,14 @@ const Endorsement = ({ peopleData, fetchPeople }) => {
         {peopleData &&
           peopleData.users &&
           peopleData.users.map((person) => (
-            <div className="person" key={person.id}>
+            <div className="person" key={person["id"]}>
               <div className="photo__container">
-                <div className="photo photo2">{person.name}</div>
+                <div className="photo photo2">{person["name"]}</div>
                 <Media query="(max-width: 37.5em">
                   <div
                     className="dropdown__container"
                     data-toggle="collapse"
-                    data-target={`#description${person.id}`}
+                    data-target={`#description${person["id"]}`}
                     role="button"
                     aria-expanded="false"
                   >
@@ -59,14 +73,14 @@ const Endorsement = ({ peopleData, fetchPeople }) => {
                 </Media>
               </div>
               <div
-                id={`description${person.id}`}
+                id={`description${person["id"]}`}
                 className="description collapse"
               >
                 <p>
-                  {person.name} of {person.address.city}
+                  {person["name"]} of {person["address"]["city"]}
                   stands in support of this candidate!
                   <br />
-                  {Number(person.id) % 2
+                  {Number(person["id"]) % 2
                     ? `Fusce ligula mi, congue ut cursus nec, dapibus a arcu. Suspendisse sit amet leo arcu. Etiam vel ligula ut augue molestie sodales. Integer gravida sed lorem at efficitur. Maecenas non nulla eget orci convallis vulputate vitae non ex. Donec quis libero ut nulla posuere elementum nec a quam. Pellentesque arcu mi, maximus ac metus vitae, convallis porta nisl. Morbi laoreet, nisl at laoreet imperdiet, eros est egestas felis, sit amet consequat eros urna ullamcorper mauris. `
                     : `Donec suscipit nisi a dolor finibus mattis eget a elit. Nunc vel posuere lacus. Maecenas imperdiet sapien at pulvinar egestas. Vivamus lacinia orci sed orci sollicitudin, non vestibulum justo condimentum. Nam nec quam ultrices, sollicitudin tellus in, facilisis magna. Vivamus molestie posuere nisi, sed convallis dui fermentum sed. Phasellus ex elit, consequat at nunc et, pulvinar volutpat enim. Praesent efficitur felis id lobortis feugiat. Integer arcu velit, hendrerit tempus leo a, consequat efficitur lacus. Donec auctor quam non justo egestas, in commodo nulla tincidunt. Mauris nec est porttitor, viverra erat ac, varius nulla. Donec justo justo, feugiat non augue a, laoreet venenatis metus. Sed finibus velit felis, nec auctor neque maximus nec. Donec leo nunc, mattis a neque ac, auctor lacinia lacus. Cras nec augue et metus egestas lacinia. Donec tempor non odio at tempus.`}
                 </p>
@@ -86,13 +100,13 @@ const Endorsement = ({ peopleData, fetchPeople }) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: { people: IPeopleState }) => {
   return {
     peopleData: state.people,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
     fetchPeople: () => dispatch(fetchPeople()),
   };
