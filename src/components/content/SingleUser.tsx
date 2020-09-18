@@ -6,14 +6,18 @@ import { UseInput } from "../hooks";
 
 const mii = require("../../assets/images/mii.png");
 
-const SingleUser = (props) => {
+interface SingleUserProp {
+  location: { state: { name: string; id: number } };
+}
+
+const SingleUser: React.FunctionComponent<SingleUserProp> = (props) => {
   const state = props.location.state;
   const [press, setPress] = useState(false);
   const [updating, setUpdating] = useState(false);
   const [updated, setUpdated] = useState(false);
   const [currEmail, setCurrEmail] = useState("");
   const [alert, setAlert] = useState(false);
-  const id = state.id;
+  const id = state["id"];
   const [newEmail, bindNewEmail, resetNewEmail] = UseInput("");
   const [oldEmail, bindOldEmail, resetOldEmail] = UseInput("");
   const url = `https://mock-campaign-server.herokuapp.com/api/users/${id}`;
@@ -45,7 +49,7 @@ const SingleUser = (props) => {
     getUser();
   }, [url]);
 
-  const submitHandler = async (e) => {
+  const submitHandler = async (e: React.MouseEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (oldEmail === currEmail) {
       updateUser();

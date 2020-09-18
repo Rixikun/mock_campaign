@@ -7,7 +7,7 @@ import Home from "./Home.tsx";
 import HowTo from "./HowTo.tsx";
 import Merchandise from "./Merchandise";
 import Navigation from "./Navigation.tsx";
-import SingleUser from "./SingleUser";
+import SingleUser from "./SingleUser.tsx";
 import Stances from "./Stances.tsx";
 import Volunteer from "./Volunteer.tsx";
 import VolunteerForm from "./VolunteerForm.tsx";
