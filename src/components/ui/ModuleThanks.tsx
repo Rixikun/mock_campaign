@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { UseInput } from "../hooks";
 
-const ModuleThanks = (props) => {
+interface ModuleThanksProps {
+  msg: string;
+  id?: number;
+}
+
+const ModuleThanks: React.FunctionComponent<ModuleThanksProps> = (props) => {
   const [user, setUser] = useState({ email: "" });
   const [alert, setAlert] = useState(false);
   const [deleting, setDeleting] = useState(false);
@@ -20,7 +25,7 @@ const ModuleThanks = (props) => {
     }
   };
 
-  const submitHandler = async (e) => {
+  const submitHandler = async (e: React.MouseEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (email === user.email) {
       setDeleting(true);
@@ -44,7 +49,7 @@ const ModuleThanks = (props) => {
     };
     let isMounted = true;
     isMounted && getUser();
-    return () => (isMounted = false);
+    isMounted = false;
   }, [url]);
 
   const deleteReq = !deleting ? (
