@@ -9,7 +9,7 @@ import Merchandise from "./Merchandise";
 import Navigation from "./Navigation.tsx";
 import SingleUser from "./SingleUser";
 import Stances from "./Stances.tsx";
-import Volunteer from "./Volunteer";
+import Volunteer from "./Volunteer.tsx";
 import VolunteerForm from "./VolunteerForm";
 
 export {

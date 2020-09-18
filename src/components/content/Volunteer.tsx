@@ -4,7 +4,7 @@ import axios from "axios";
 
 import VolunteerForm from "./VolunteerForm";
 
-const Volunteer = () => {
+const Volunteer: React.FunctionComponent = () => {
   const [users, setUsers] = useState([]);
   const [update, setUpdate] = useState(false);
 
@@ -27,14 +27,14 @@ const Volunteer = () => {
   }
 
   const userNames = users.map((e) => (
-    <li key={e.id}>
+    <li key={e["id"]}>
       <NavLink
         to={{
-          pathname: "/Volunteer/user/" + e.id,
-          state: { name: e.firstName + " " + e.lastName, id: e.id },
+          pathname: "/Volunteer/user/" + e["id"],
+          state: { name: e["firstName"] + " " + e["lastName"], id: e["id"] },
         }}
       >
-        {e.firstName} {e.lastName[0]}.
+        {e["firstName"]} {e["lastName"][0]}.
       </NavLink>
     </li>
   ));
