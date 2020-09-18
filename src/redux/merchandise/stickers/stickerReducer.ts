@@ -7,7 +7,10 @@ const initialState = {
   boughtStickers: 0,
 };
 
-const stickerReducer = (state = initialState, action) => {
+const stickerReducer = (
+  state = initialState,
+  action: { type: string; payload: { num: number; finish: string } }
+) => {
   switch (action.type) {
     case BUY_STICKER:
       return {

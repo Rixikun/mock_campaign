@@ -4,7 +4,10 @@ const initialState = {
   purchaseHistory: [],
 };
 
-const merchReducer = (state = initialState, action) => {
+const merchReducer = (
+  state = initialState,
+  action: { type: string; payload: string }
+) => {
   switch (action.type) {
     case UPDATE_HISTORY:
       return {

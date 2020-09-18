@@ -7,7 +7,10 @@ const initialState = {
   boughtShirts: 0,
 };
 
-const shirtReducer = (state = initialState, action) => {
+const shirtReducer = (
+  state = initialState,
+  action: { type: string; payload: { num: number; size: string } }
+) => {
   switch (action.type) {
     case BUY_SHIRT:
       return {
