@@ -17,6 +17,14 @@ interface SelectedMarker {
   council_district: string;
 }
 
+interface ViewportSetting {
+  width: any;
+  height: any;
+  longitude: number;
+  latitude: number;
+  zoom: number;
+}
+
 const HowTo: React.FunctionComponent = () => {
   const [polls, setPolls] = useState([]);
   const getPolls = async () => {
@@ -28,9 +36,9 @@ const HowTo: React.FunctionComponent = () => {
     );
   };
 
-  const [viewport, setViewport] = useState({
-    width: 100,
-    height: 100,
+  const [viewport, setViewport] = useState<ViewportSetting>({
+    width: "100%",
+    height: "100%",
     latitude: 40.753685,
     longitude: -73.999161,
     zoom: 11,
@@ -63,12 +71,12 @@ const HowTo: React.FunctionComponent = () => {
         if (e.key === "Escape") setSelected({});
       });
     }
-    return () => {
-      window.removeEventListener("keydown", (e: KeyboardEvent) => {
-        if (e.key === "Escape") setSelected({});
-      });
-      mounted = false;
-    };
+    // return () => {
+    window.removeEventListener("keydown", (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelected({});
+    });
+    mounted = false;
+    // };
   }, []);
 
   function markerHandler(
@@ -170,7 +178,7 @@ const HowTo: React.FunctionComponent = () => {
                   </button>
                 </Marker>
 
-                {selected && (
+                {selected && selected["latitude"] && (
                   <Popup
                     latitude={Number(selected["latitude"])}
                     longitude={Number(selected["longitude"])}
