@@ -10,7 +10,7 @@ import Navigation from "./Navigation.tsx";
 import SingleUser from "./SingleUser";
 import Stances from "./Stances.tsx";
 import Volunteer from "./Volunteer.tsx";
-import VolunteerForm from "./VolunteerForm";
+import VolunteerForm from "./VolunteerForm.tsx";
 
 export {
   AboutCandidate,

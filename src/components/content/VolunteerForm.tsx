@@ -3,14 +3,18 @@ import { UseInput } from "../hooks";
 import axios from "axios";
 import ModuleThanks from "../ui/ModuleThanks";
 
-const VolunteerForm = (props) => {
+interface VolunteerFormProp {
+  handleUpdate: () => void;
+}
+
+const VolunteerForm: React.FunctionComponent<VolunteerFormProp> = (props) => {
   const [firstName, bindFirstName, resetFirstName] = UseInput("");
   const [lastName, bindLastName, resetLastName] = UseInput("");
   const [email, bindEmail, resetEmail] = UseInput("");
   const [phoneNumber, bindPhoneNumber, resetPhoneNumber] = UseInput("");
 
   const [press, setPress] = useState(false);
-  const submitHandler = async (e) => {
+  const submitHandler = async (e: React.MouseEvent<HTMLFormElement>) => {
     e.preventDefault();
     setPress(true);
     await axios.post("https://mock-campaign-server.herokuapp.com/api/users/", {
