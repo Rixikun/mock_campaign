@@ -4,7 +4,16 @@ import { connect } from "react-redux";
 import { buySticker, updateHistory } from "../../redux/index";
 import ModuleWarning from "../ui/ModuleWarning";
 
-const StickerContainer = (props) => {
+interface StickerContainerProps {
+  numOfStickers: number;
+  name: string;
+  buySticker: (num: number, finish: string) => void;
+  updateHistory: (purchase: string) => void;
+}
+
+const StickerContainer: React.FunctionComponent<StickerContainerProps> = (
+  props
+) => {
   const [num, setNum] = useState(1);
   const [finish, setFinish] = useState("matte");
   const [toggle, setToggle] = useState(false);
@@ -26,11 +35,11 @@ const StickerContainer = (props) => {
             type="number"
             value={num}
             onChange={(e) => {
-              if (e.target.value > 1000) {
+              if (Number(e.target.value) > 1000) {
                 setToggle(true);
                 setMsg(msg1);
               } else {
-                setNum(e.target.value);
+                setNum(Number(e.target.value));
               }
             }}
           ></input>
@@ -80,17 +89,20 @@ const StickerContainer = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: {
+  sticker: { numOfStickers: number; name: string };
+}) => {
   return {
     numOfStickers: state.sticker.numOfStickers,
     name: state.sticker.name,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
-    buySticker: (num, finish) => dispatch(buySticker(num, finish)),
-    updateHistory: (purchase) => dispatch(updateHistory(purchase)),
+    buySticker: (num: number, finish: string) =>
+      dispatch(buySticker(num, finish)),
+    updateHistory: (purchase: string) => dispatch(updateHistory(purchase)),
   };
 };
 

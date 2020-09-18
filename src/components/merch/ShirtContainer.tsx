@@ -4,7 +4,16 @@ import { connect } from "react-redux";
 import { buyShirt, updateHistory } from "../../redux/index";
 import ModuleWarning from "../ui/ModuleWarning";
 
-const ShirtContainer = (props) => {
+interface ShirtContainerProps {
+  numOfShirts: number;
+  name: string;
+  buyShirt: (num: number, finish: string) => void;
+  updateHistory: (purchase: string) => void;
+}
+
+const ShirtContainer: React.FunctionComponent<ShirtContainerProps> = (
+  props
+) => {
   const [num, setNum] = useState(1);
   const [size, setSize] = useState("small");
   const [toggle, setToggle] = useState(false);
@@ -25,11 +34,11 @@ const ShirtContainer = (props) => {
             type="number"
             value={num}
             onChange={(e) => {
-              if (e.target.value > 1000) {
+              if (Number(e.target.value) > 1000) {
                 setToggle(true);
                 setMsg(msg1);
               } else {
-                setNum(e.target.value);
+                setNum(Number(e.target.value));
               }
             }}
           ></input>
@@ -80,17 +89,19 @@ const ShirtContainer = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: {
+  shirt: { numOfShirts: number; name: string };
+}) => {
   return {
     numOfShirts: state.shirt.numOfShirts,
     name: state.shirt.name,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
-    buyShirt: (num, size) => dispatch(buyShirt(num, size)),
-    updateHistory: (purchase) => dispatch(updateHistory(purchase)),
+    buyShirt: (num: number, size: string) => dispatch(buyShirt(num, size)),
+    updateHistory: (purchase: string) => dispatch(updateHistory(purchase)),
   };
 };
 
