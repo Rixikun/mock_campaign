@@ -6,23 +6,39 @@ import markerIcon from "../../assets/images/map-marker-alt-solid.svg";
 const poll = require("../../assets/images/polls.jpg");
 const poll_sign = require("../../assets/images/poll_sign.jpg");
 
-const HowTo = () => {
+interface SelectedMarker {
+  longitude: number;
+  latitude: number;
+  site_name: string;
+  voter_entrance: string;
+  zip_code: string;
+  city: string;
+  borough: string;
+  council_district: string;
+}
+
+const HowTo: React.FunctionComponent = () => {
   const [polls, setPolls] = useState([]);
   const getPolls = async () => {
     const { data } = await axios.get(
       "https://data.cityofnewyork.us/resource/mifw-tguq.json"
     );
-    setPolls(data.filter((pt) => pt.longitude));
+    setPolls(
+      data.filter((pt: { longitude: string; latitude: string }) => pt.longitude)
+    );
   };
 
   const [viewport, setViewport] = useState({
-    width: "100%",
-    height: "100%",
+    width: 100,
+    height: 100,
     latitude: 40.753685,
     longitude: -73.999161,
     zoom: 11,
   });
-  const [userMarker, setUserMarker] = useState("");
+  const [userMarker, setUserMarker] = useState({
+    latitude: 40.753685,
+    longitude: -73.999161,
+  });
   const getUserLocation = () => {
     navigator.geolocation.getCurrentPosition((pos) => {
       setViewport({
@@ -31,35 +47,34 @@ const HowTo = () => {
         longitude: pos.coords.longitude,
         zoom: 14,
       });
-      setUserMarker(
-        <Marker latitude={pos.coords.latitude} longitude={pos.coords.longitude}>
-          <button type="button" className="marker user-marker">
-            <img src={markerIcon} alt="map marker of user" />
-          </button>
-        </Marker>
-      );
+      setUserMarker({
+        latitude: pos.coords.latitude,
+        longitude: pos.coords.longitude,
+      });
     });
   };
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState<Partial<SelectedMarker>>({});
   getUserLocation();
   useEffect(() => {
     let mounted = true;
-    const listener = (e) => {
-      if (e.key === "Escape") {
-        setSelected(null);
-      }
-    };
     if (mounted) {
       getPolls();
-      window.addEventListener("keydown", listener);
+      window.addEventListener("keydown", (e: KeyboardEvent) => {
+        if (e.key === "Escape") setSelected({});
+      });
     }
     return () => {
-      window.removeEventListener("keydown", listener);
+      window.removeEventListener("keydown", (e: KeyboardEvent) => {
+        if (e.key === "Escape") setSelected({});
+      });
       mounted = false;
     };
   }, []);
 
-  function markerHandler(e, pt) {
+  function markerHandler(
+    e: React.MouseEvent<HTMLButtonElement>,
+    pt: { latitude: number; longitude: number }
+  ) {
     e.preventDefault();
     setSelected(pt);
   }
@@ -133,8 +148,8 @@ const HowTo = () => {
                   ? polls.map((pt, idx) => (
                       <Marker
                         key={idx}
-                        latitude={Number(pt.latitude)}
-                        longitude={Number(pt.longitude)}
+                        latitude={Number(pt["latitude"])}
+                        longitude={Number(pt["longitude"])}
                       >
                         <button
                           type="button"
@@ -146,23 +161,30 @@ const HowTo = () => {
                       </Marker>
                     ))
                   : ""}
-                {userMarker}
+                <Marker
+                  latitude={userMarker["latitude"]}
+                  longitude={userMarker["longitude"]}
+                >
+                  <button type="button" className="marker user-marker">
+                    <img src={markerIcon} alt="map marker of user" />
+                  </button>
+                </Marker>
 
                 {selected && (
                   <Popup
-                    latitude={Number(selected.latitude)}
-                    longitude={Number(selected.longitude)}
+                    latitude={Number(selected["latitude"])}
+                    longitude={Number(selected["longitude"])}
                     onClose={() => {
-                      setSelected(null);
+                      setSelected({});
                     }}
                   >
                     <div className="popup-details">
-                      <h4>{selected.site_name}</h4>
+                      <h4>{selected["site_name"]}</h4>
                       <p>
-                        {selected.voter_entrance}, {selected.zip_code},{" "}
-                        {selected.city}, {selected.borough}
+                        {selected["voter_entrance"]}, {selected["zip_code"]},{" "}
+                        {selected["city"]}, {selected["borough"]}
                         <br />
-                        Council District: {selected.council_district}
+                        Council District: {selected["council_district"]}
                       </p>
                     </div>
                   </Popup>

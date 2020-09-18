@@ -4,7 +4,7 @@ import Endorsement from "./Endorsement.tsx";
 import Footer from "./Footer.tsx";
 import Header from "./Header.tsx";
 import Home from "./Home.tsx";
-import HowTo from "./HowTo";
+import HowTo from "./HowTo.tsx";
 import Merchandise from "./Merchandise";
 import Navigation from "./Navigation.tsx";
 import SingleUser from "./SingleUser";
