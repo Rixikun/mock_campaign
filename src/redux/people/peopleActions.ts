@@ -10,13 +10,13 @@ export const fetchPeopleRequest = () => {
     type: FETCH_PEOPLE_REQUEST,
   };
 };
-export const fetchPeopleSuccess = (people) => {
+export const fetchPeopleSuccess = (people: object) => {
   return {
     type: FETCH_PEOPLE_SUCCESS,
     payload: people,
   };
 };
-export const fetchPeopleFailure = (error) => {
+export const fetchPeopleFailure = (error: string) => {
   return {
     type: FETCH_PEOPLE_FAILURE,
     payload: error,
@@ -26,7 +26,7 @@ export const fetchPeopleFailure = (error) => {
 //special action creator bc thunk -- returns fn, not action
 export const fetchPeople = () => {
   //takes dispatch as param
-  return async (dispatch) => {
+  return async (dispatch: any) => {
     //request data -- People list
     try {
       dispatch(fetchPeopleRequest);
@@ -43,7 +43,7 @@ export const fetchPeople = () => {
 };
 
 export const fetchVolunteers = () => {
-  return async (dispatch) => {
+  return async (dispatch: any) => {
     try {
       dispatch(fetchPeopleRequest);
       const url = "https://mock-campaign-server.herokuapp.com/api/users/";

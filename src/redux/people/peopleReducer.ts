@@ -10,7 +10,10 @@ const initialState = {
   error: "",
 };
 
-const peopleReducer = (state = initialState, action) => {
+const peopleReducer = (
+  state = initialState,
+  action: { type: string; payload: object }
+) => {
   switch (action.type) {
     case FETCH_PEOPLE_REQUEST: {
       return {
