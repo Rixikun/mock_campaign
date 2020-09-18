@@ -5,7 +5,7 @@ import Footer from "./Footer.tsx";
 import Header from "./Header.tsx";
 import Home from "./Home.tsx";
 import HowTo from "./HowTo.tsx";
-import Merchandise from "./Merchandise";
+import Merchandise from "./Merchandise.tsx";
 import Navigation from "./Navigation.tsx";
 import SingleUser from "./SingleUser.tsx";
 import Stances from "./Stances.tsx";

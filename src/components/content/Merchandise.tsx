@@ -4,7 +4,11 @@ import { connect } from "react-redux";
 import StickerContainer from "../merch/StickerContainer";
 import ShirtContainer from "../merch/ShirtContainer";
 
-const Merchandise = (props) => {
+interface MerchandiseProp {
+  purchaseHistory: [];
+}
+
+const Merchandise: React.FunctionComponent<MerchandiseProp> = (props) => {
   return (
     <div className="merchandise">
       <div className="title">
@@ -26,7 +30,7 @@ const Merchandise = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: { general: MerchandiseProp }) => {
   return {
     purchaseHistory: state.general.purchaseHistory,
   };
